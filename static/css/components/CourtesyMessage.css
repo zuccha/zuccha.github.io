@@ -2,4 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.courtesy-message-action {
+  margin-top: var(--spacing-3);
 }

@@ -1,52 +1,36 @@
 .guide-route {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
   width: 100%;
-  padding: var(--spacing-6);
 }
 
 .guide-route-filters {
-  display: flex;
-  margin-right: var(--spacing-6);
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
+  position: relative;
 }
 
 .guide-route-filters > * {
-  margin-top: 10vh;
+  background-color: var(--color-neutral-2);
+  position: absolute;
+  padding: var(--spacing-4) var(--spacing-5);
+  border: 1px solid var(--color-neutral-5);
+  top: var(--spacing-4);
+  left: 0;
+  right: 0;
 }
 
-@media only screen and (max-width: 900px) {
-  .guide-route {
-    flex-direction: column-reverse;
-  }
-
-  .guide-route-filters {
-    width: 100%;
-    margin-right: 0;
-  }
-
-  .guide-route-filters > * {
-    flex: 1;
-    margin-top: var(--spacing-6);
-  }
-
-  .guide-route-guide > * {
-    justify-content: center;
-  }
+.guide-route-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-@media only screen and (max-width: 600px) {
-  .guide-route {
-    padding: var(--spacing-3);
-  }
+.guide-route-guide {
+  max-width: var(--max-page-width);
+  padding: var(--spacing-6) 0;
 }
 
-@media only screen and (max-width: 400px) {
-  .guide-route {
-    padding: 0;
+@media only screen and (max-width: 800px) {
+  .guide-route-content {
+    padding: var(--spacing-2);
   }
 }

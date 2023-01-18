@@ -34470,7 +34470,7 @@ const formatDarkSouls3Instruction = (i)=>{
     };
     const formattedInstruction = formatInstructionByType();
     if (i.safety) {
-        return `${MD.i("[peachy]")} ${formattedInstruction}`;
+        return `${MD.i("[safety]")} ${formattedInstruction}`;
     }
     if (i.optional) {
         return `${MD.i("[optional]")} ${formattedInstruction}`;
@@ -76429,13 +76429,24 @@ const Header = ({ title  })=>{
         align: "center"
     }));
 };
-const Button = ({ href , icon , isExternalLink , label  })=>{
-    const target = isExternalLink ? "_blank" : undefined;
-    const align = icon ? "button-left" : "button-center";
-    return rest.createElement(mod9.Link, {
-        className: `button ${align}`,
-        to: href,
-        target: target
+const Button = ({ hideBorder , icon , isActive , label , onClick  })=>{
+    const className = rest.useMemo(()=>{
+        const classNames = [
+            "button"
+        ];
+        if (hideBorder) classNames.push("button-no-border");
+        if (icon) classNames.push("button-left");
+        else classNames.push("button-center");
+        if (isActive) classNames.push("button-active");
+        return classNames.join(" ");
+    }, [
+        hideBorder,
+        icon,
+        isActive
+    ]);
+    return rest.createElement("div", {
+        className: className,
+        onClick: onClick
     }, icon && rest.createElement(mod7.FontAwesomeIcon, {
         icon: icon,
         className: "button-icon"
@@ -76444,13 +76455,28 @@ const Button = ({ href , icon , isExternalLink , label  })=>{
         variant: "t1"
     }));
 };
+const NavigationButton = ({ href , icon , isExternalLink , label  })=>{
+    const navigate = mod9.useNavigate();
+    const handleNavigate = rest.useCallback(()=>{
+        if (isExternalLink) {
+            open(href, "_blank");
+        } else {
+            navigate(href);
+        }
+    }, []);
+    return rest.createElement(Button, {
+        label: label,
+        icon: icon,
+        onClick: handleNavigate
+    });
+};
 const NavigationGrid = ({ lastRowAlignment ="left" , routes  })=>{
     const navigationGridClassName = lastRowAlignment === "left" ? "navigation-grid-left" : "navigation-grid-right";
     return rest.createElement("div", {
         className: "navigation-grid"
     }, rest.createElement("div", {
         className: navigationGridClassName
-    }, routes.map((route)=>rest.createElement(Button, {
+    }, routes.map((route)=>rest.createElement(NavigationButton, {
             key: route.label,
             href: route.url,
             icon: route.icon,
@@ -76473,6 +76499,7 @@ const Separator = ({ title  })=>{
     }));
 };
 const HomeScreen = ()=>{
+    document.title = "Amedeo Zucchetti";
     const routes = rest.useMemo(()=>[
             {
                 url: "https://github.com/zuccha/",
@@ -76500,21 +76527,30 @@ const HomeScreen = ()=>{
         window.location.origin
     ]);
     return rest.createElement("div", {
-        className: "route-compact"
+        className: "home-route"
+    }, rest.createElement("div", {
+        className: "home-route-content"
     }, rest.createElement(Header, {
         title: "Amedeo Zucchetti"
     }), rest.createElement(Separator, null), rest.createElement(NavigationGrid, {
         routes: routes,
         lastRowAlignment: "right"
-    }));
+    })));
 };
-const CourtesyMessage = ({ title  })=>{
+const CourtesyMessage = ({ title , action  })=>{
     return rest.createElement("div", {
         className: "courtesy-message"
     }, rest.createElement(Text, {
         text: title,
         variant: "h3"
-    }));
+    }), action && rest.createElement("div", {
+        className: "courtesy-message-action"
+    }, rest.createElement(Button, {
+        icon: mod3.faArrowAltCircleLeft,
+        label: action.label,
+        onClick: action.onClick,
+        hideBorder: true
+    })));
 };
 const Checkbox = ({ isChecked , label , onToggleChecked  })=>{
     return rest.createElement("div", {
@@ -76528,6 +76564,15 @@ const Checkbox = ({ isChecked , label , onToggleChecked  })=>{
         variant: "t1"
     }));
 };
+const boldAndItalicRegExp = /\*\*\*([^\*]+)\*\*\*/gm;
+const bold1RegExp = /\*\*([^\*]+)\*\*/gm;
+const bold2RegExp = /__([^_]+)__/gm;
+const italic1RegExp = /\*([^\*]+)\*/gm;
+const italic2RegExp = /_([^_]+)_/gm;
+const strikethroughRegExp = /~~([^~]+)~~/g;
+const stripMarkdown = (text)=>{
+    return text.replace(boldAndItalicRegExp, (_, match)=>match).replace(bold1RegExp, (_, match)=>match).replace(bold2RegExp, (_, match)=>match).replace(italic1RegExp, (_, match)=>match).replace(italic2RegExp, (_, match)=>match).replace(strikethroughRegExp, (_, match)=>match);
+};
 const GuideFilters = ({ hideComments , hideOptional , hideSafety , ignoredRules , rules , onToggleHideComments , onToggleHideOptional , onToggleHideSafety , onToggleIgnoredRule  })=>{
     return rest.createElement("div", {
         className: "guide-filters"
@@ -76535,6 +76580,8 @@ const GuideFilters = ({ hideComments , hideOptional , hideSafety , ignoredRules 
         text: "Filters",
         variant: "h4"
     }), rest.createElement("div", {
+        className: "guide-filters-filters"
+    }, rest.createElement("div", {
         className: "guide-filters-filter"
     }, rest.createElement(Checkbox, {
         isChecked: hideComments,
@@ -76552,14 +76599,15 @@ const GuideFilters = ({ hideComments , hideOptional , hideSafety , ignoredRules 
         isChecked: hideSafety,
         label: "Hide safety strats",
         onToggleChecked: onToggleHideSafety
-    })), Object.entries(rules).map(([id])=>rest.createElement("div", {
+    })), Object.entries(rules).map(([id, description])=>rest.createElement("div", {
             key: id,
-            className: "guide-filters-filter"
+            className: "guide-filters-filter",
+            title: stripMarkdown(description)
         }, rest.createElement(Checkbox, {
             isChecked: ignoredRules.includes(Number(id)),
-            label: `Ignore rule ${id}`,
+            label: `Ignore rule ${id} ⓘ`,
             onToggleChecked: ()=>onToggleIgnoredRule(Number(id))
-        }))));
+        })))));
 };
 const RehypePlugins = [
     n30
@@ -76611,6 +76659,27 @@ const GuideViewer = ({ markdown  })=>{
         components: components
     }, markdown));
 };
+const NavigationBar = ({ actions =[] , contentBelow , backUrl  })=>{
+    const navigate = mod9.useNavigate();
+    const handleGoBack = rest.useCallback(()=>{
+        if (backUrl) navigate(backUrl);
+    }, []);
+    return rest.createElement("div", {
+        className: "navigation-bar"
+    }, rest.createElement("div", {
+        className: "navigation-bar-header"
+    }, backUrl ? rest.createElement(Button, {
+        onClick: handleGoBack,
+        label: "Back",
+        icon: mod3.faArrowAltCircleLeft,
+        hideBorder: true
+    }) : rest.createElement("div", null), rest.createElement("div", null, actions.map((action)=>rest.createElement(Button, {
+            onClick: action.onClick,
+            label: action.label,
+            hideBorder: true,
+            isActive: action.isActive
+        })))), contentBelow);
+};
 const emptyResource = [
     undefined,
     "initial"
@@ -76651,9 +76720,10 @@ const formatUrl = (location, options)=>{
     if (options.hideOptional) params.push("hide-optional");
     if (options.hideSafety) params.push("hide-safety");
     if (options.ignoredRules.length > 0) params.push(`ignored-rules=${options.ignoredRules.map((rule)=>`${rule}`).join(",")}`);
-    return params.length === 0 ? location : `${location}?${params.join("&")}`;
+    return params.length === 0 ? `/#${location}` : `/#${location}?${params.join("&")}`;
 };
 const GuideScreen = ()=>{
+    document.title = "Dark Souls III Guide";
     const location = mod9.useLocation();
     const pathnames = location.pathname.split("/");
     const name = pathnames[pathnames.length - 1];
@@ -76747,35 +76817,64 @@ const GuideScreen = ()=>{
     }, [
         location.pathname
     ]);
+    const [hideFilters, setHideFilters] = rest.useState(true);
+    const toggleFilters = rest.useCallback(()=>{
+        setHideFilters((prevHideFilters)=>!prevHideFilters);
+    }, []);
+    const navigationBarActions = rest.useMemo(()=>[
+            {
+                label: "Filters",
+                onClick: toggleFilters,
+                isActive: !hideFilters
+            }
+        ], [
+        hideFilters,
+        toggleFilters
+    ]);
+    const navigate = mod9.useNavigate();
+    const handleGoBack = rest.useCallback(()=>{
+        navigate("/more");
+    }, []);
     if (status === "initial" || status === "loading") {
         return null;
     }
     if (status === "failure") {
         return rest.createElement(CourtesyMessage, {
-            title: "The guide is not valid :("
+            title: "The guide is not valid :(",
+            action: {
+                label: "BACK",
+                onClick: handleGoBack
+            }
         });
     }
     return rest.createElement("div", {
         className: "guide-route"
+    }, rest.createElement(NavigationBar, {
+        backUrl: "/more",
+        actions: navigationBarActions,
+        contentBelow: rest.createElement("div", {
+            className: hideFilters ? "guide-route-filters hidden" : "guide-route-filters"
+        }, rest.createElement(GuideFilters, {
+            hideComments: options.hideComments,
+            hideOptional: options.hideOptional,
+            hideSafety: options.hideSafety,
+            ignoredRules: options.ignoredRules,
+            rules: rules,
+            onToggleHideComments: handleToggleHideComments,
+            onToggleHideOptional: handleToggleHideOptional,
+            onToggleHideSafety: handleToggleHideSafety,
+            onToggleIgnoredRule: handleToggleIgnoredRule
+        }))
+    }), rest.createElement("div", {
+        className: "guide-route-content"
     }, rest.createElement("div", {
-        className: "guide-route-filters"
-    }, rest.createElement(GuideFilters, {
-        hideComments: options.hideComments,
-        hideOptional: options.hideOptional,
-        hideSafety: options.hideSafety,
-        ignoredRules: options.ignoredRules,
-        rules: rules,
-        onToggleHideComments: handleToggleHideComments,
-        onToggleHideOptional: handleToggleHideOptional,
-        onToggleHideSafety: handleToggleHideSafety,
-        onToggleIgnoredRule: handleToggleIgnoredRule
-    })), rest.createElement("div", {
         className: "guide-route-guide"
     }, rest.createElement(GuideViewer, {
         markdown: guide.format(options)
-    })));
+    }))));
 };
 const MoreScreen = ()=>{
+    document.title = "Amedeo Zucchetti";
     const routes = rest.useMemo(()=>[
             {
                 url: "/guides/dark-souls-3-any-glitchless-sl1",
@@ -76785,12 +76884,16 @@ const MoreScreen = ()=>{
         window.location.origin
     ]);
     return rest.createElement("div", {
-        className: "route-compact"
+        className: "more-route"
+    }, rest.createElement(NavigationBar, {
+        backUrl: "/"
+    }), rest.createElement("div", {
+        className: "more-route-content"
     }, rest.createElement(Header, {
         title: "Guides"
     }), rest.createElement(Separator, null), rest.createElement(NavigationGrid, {
         routes: routes
-    }));
+    })));
 };
 const App = ()=>{
     return rest.createElement(mod9.HashRouter, null, rest.createElement("div", {

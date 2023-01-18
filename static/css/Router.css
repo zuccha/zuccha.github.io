@@ -3,11 +3,5 @@
   min-height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;
-}
-
-.route-compact {
-  width: 100%;
-  max-width: 512px;
-  margin-top: 30vh;
+  flex-direction: column;
 }

@@ -1,0 +1,12 @@
+.home-route {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.home-route-content {
+  width: 100%;
+  max-width: 512px;
+  margin-top: 30vh;
+  align-self: center;
+}

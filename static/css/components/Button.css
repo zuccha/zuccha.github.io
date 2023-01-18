@@ -9,6 +9,15 @@
   transition: border-color 0.25s linear;
 }
 
+.button-no-border {
+  border: 1px solid transparent;
+  width: auto;
+}
+
+.button-active {
+  background-color: var(--color-primary-3);
+}
+
 .button-center {
   justify-content: center;
 }
@@ -26,6 +35,10 @@ a.button:active {
   border-color: var(--color-neutral-8);
   transition: background-color 0.25s linear;
   transition: border-color 0.25s linear;
+}
+
+.button-active:hover {
+  background-color: var(--color-primary-3);
 }
 
 .button:active {
