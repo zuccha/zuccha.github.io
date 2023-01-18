@@ -1,0 +1,16 @@
+.navigation-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.navigation-grid-left,
+.navigation-grid-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--spacing-3);
+  align-items: end;
+}
+
+.navigation-grid-right > *:last-child {
+  grid-column-end: 3;
+}
