@@ -804,7 +804,7 @@
       "showOnIgnoredRules": [8],
       "area": "Cathedral of the Deep",
       "type": "unlock-shortcut",
-      "where": "by going downstairs, opening the gate and the door that leads back to the chapel bonfire",
+      "where": "by going down the elevator, opening the gate and the door that leads back to the chapel bonfire",
       "safety": true
     },
     {
@@ -823,7 +823,7 @@
       "showOnIgnoredRules": [8],
       "area": "Cathedral of the Deep",
       "type": "unlock-shortcut",
-      "where": "in a passage on the left side of the hall that leads back to the chapel bonfire",
+      "where": "in a passage on the left side of the hall, down the stairs leading back to the chapel bonfire",
       "safety": true
     },
     {
@@ -1009,7 +1009,169 @@
       ]
     },
     {
+      "hideOnIgnoredRules": [8],
       "area": "Profaned Capital",
+      "type": "warp",
+      "bonfire": "Distant Manor"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Profaned Capital",
+      "type": "warp",
+      "bonfire": "Vordt of the Boreal Valley"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "comment",
+      "text": "Run into the cathedral, kill _Emma_, and place the _Basin of Vows_ on the pillar"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "fight-boss",
+      "boss": "Dancer of the Boreal Valley",
+      "comments": [
+        "Try staying behind and hit cautiously, never get too greedy as she can counter-attack quite quickly",
+        "Run away during the transition to the second phase, or stay glued to her ass rolling only on the final whirl for bonus style points"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "comment",
+      "text": "Climb the ladder, go towards the _Consumed King's Garden_, take the elevator down, jump off on the middle floor, and prepare to get your hands on some _Titanite Chunks_",
+      "comments": [
+        "[How to navigate the area](https://www.youtube.com/watch?v=LkQzzEYTGOg)"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [4, 8],
+      "area": "Consumed King's Garden",
+      "type": "grab-items",
+      "items": [{ "name": "Estus Shard" }],
+      "where": "on the right side of the middle floor"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "on the broken stairs on the left side of the middle floor"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "by running straight and climbing the stairs onto the platform",
+      "comments": ["Be wary of the Pus of Man that roam the area"]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "in the corner on the opposite side of the area"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "warp",
+      "using": "Homeward Bone"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "light-bonfire",
+      "bonfire": "Lothric Castle",
+      "comments": [
+        "We'll need to loot some _Titanite Chunks_ guarded by an army of hollows that's only waiting for us to show up, so it's advisable to take this bonfire"
+      ],
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "on a corpse on a balcony as you make your way outside"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "on a corpse on a balcony as you make your way outside"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "after climbing the stairs and reaching the hollow infested area, go down the stairs"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk", "quantity": 2 }],
+      "where": "going straight instead of taking the stairs with the axe-wielding hollow, that lead to the _Dragon Barracks_ bonfire"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "light-bonfire",
+      "bonfire": "Dragon Barracks"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "comment",
+      "text": "Jump down on the ledge below the bridge by walking on the armor on the left side, so you don't trigger the dragons"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "on the ledge below the bridge"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk", "quantity": 2 }],
+      "where": "on two corpses on the floor below the bridge"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "warp",
+      "bonfire": "Firelink Shrine",
+      "using": "Homeward Bone"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "upgrade-weapon",
+      "weapon": "Broadsword",
+      "level": 9
+    },
+    {
+      "showOnIgnoredRules": [4, 8],
+      "area": "Firelink Shrine",
+      "type": "reinforce-estus"
+    },
+    {
+      "showOnIgnoredRules": [5, 8],
+      "area": "Firelink Shrine",
+      "type": "burn-undead-bone-shards",
+      "quantity": 1
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
       "type": "warp",
       "bonfire": "Distant Manor"
     },
@@ -1129,7 +1291,7 @@
       "area": "Anor Londo",
       "type": "grab-items",
       "items": [{ "name": "Estus Shard" }],
-      "where": "on the bottom flow behind a ramp of stairs, in a chest"
+      "where": "on the bottom floor behind a ramp of stairs, in a chest"
     },
     {
       "showOnIgnoredRules": [8],
@@ -1149,16 +1311,25 @@
       ]
     },
     {
+      "hideOnIgnoredRules": [8],
       "area": "Anor Londo",
       "type": "comment",
       "text": "Mentally prepare for the fight with _Dancer_ as you are teleported to Lothric against your will"
     },
     {
+      "showOnIgnoredRules": [8],
+      "area": "Anor Londo",
+      "type": "comment",
+      "text": "Warp to _Dragon Barracks_ after being teleported to Lothric"
+    },
+    {
+      "hideOnIgnoredRules": [8],
       "area": "High Wall of Lothric",
       "type": "comment",
       "text": "Speak with _Emma_ (or kill her if you feel evil) and place the _Basin of Vows_ on the pillar"
     },
     {
+      "hideOnIgnoredRules": [8],
       "area": "High Wall of Lothric",
       "type": "fight-boss",
       "boss": "Dancer of the Boreal Valley",
@@ -1168,149 +1339,10 @@
       ]
     },
     {
-      "showOnIgnoredRules": [8],
-      "area": "Consumed King's Garden",
-      "type": "comment",
-      "text": "Climb the ladder, go towards the _Consumed King's Garden_, take the elevator down, jump off on the middle floor, and prepare to get your hands on some _Titanite Chunks_",
-      "comments": [
-        "[How to navigate the area](https://www.youtube.com/watch?v=LkQzzEYTGOg)"
-      ]
-    },
-    {
-      "showOnIgnoredRules": [4, 8],
-      "area": "Consumed King's Garden",
-      "type": "grab-items",
-      "items": [{ "name": "Estus Shard" }],
-      "where": "on the right side of the middle floor"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Consumed King's Garden",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk" }],
-      "where": "on the broken stairs on the left side of the middle floor"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Consumed King's Garden",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk" }],
-      "where": "by running straight and climbing the stairs onto the platform",
-      "comments": ["Be wary of the Pus of Man that roam the area"]
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Consumed King's Garden",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk" }],
-      "where": "in the corner on the opposite side of the area"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Consumed King's Garden",
-      "type": "warp",
-      "using": "Homeward Bone"
-    },
-    {
       "hideOnIgnoredRules": [8],
       "area": "Lothric Castle",
       "type": "comment",
       "text": "Navigate the castle until you reach the _Dragon Barracks_ bonfire"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "light-bonfire",
-      "bonfire": "Lothric Castle",
-      "comments": [
-        "We'll need to loot some _Titanite Chunks_ guarded by an army of hollows that's only waiting for us to show up, so it's advisable to take this bonfire"
-      ],
-      "safety": true
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk" }],
-      "where": "on a corpse on a balcony as you make your way outside"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk" }],
-      "where": "on a corpse on a balcony as you make your way outside"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk" }],
-      "where": "after climbing the stairs and reaching the hollow infested area, go down the stairs"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk", "quantity": 2 }],
-      "where": "going straight instead of taking the stairs with the axe-wielding hollow, that lead to the _Dragon Barracks_ bonfire"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "light-bonfire",
-      "bonfire": "Dragon Barracks"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "comment",
-      "text": "Jump down on the ledge below the bridge by walking on the armor on the left side, so you don't trigger the dragons"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk" }],
-      "where": "on the ledge below the bridge"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk", "quantity": 2 }],
-      "where": "on two corpses on the floor below the bridge"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "warp",
-      "bonfire": "Firelink Shrine",
-      "using": "Homeward Bone"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Firelink Shrine",
-      "type": "upgrade-weapon",
-      "weapon": "Broadsword",
-      "level": 9
-    },
-    {
-      "showOnIgnoredRules": [4, 8],
-      "area": "Firelink Shrine",
-      "type": "reinforce-estus"
-    },
-    {
-      "showOnIgnoredRules": [5, 8],
-      "area": "Firelink Shrine",
-      "type": "burn-undead-bone-shards",
-      "quantity": 1
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Firelink Shrine",
-      "type": "warp",
-      "bonfire": "Dragon Barracks"
     },
     {
       "hideOnIgnoredRules": [3, 7],
@@ -1467,9 +1499,9 @@
       "comments": [
         "Consume items while the boss is running towards you",
         "The boss is stun every 6/7 hits, deal with that",
-        "Punish the boss while he cosplays a wizard, run behind him, and try getting a stagger after he cast _Soul Mass_ to cancel it",
+        "Punish the boss while he's a wizard, run behind him, and try getting a stagger after he casts _Soul Mass_ to cancel it",
         "Hope never to see spear (curse those heals) and scimitar mode, even worse if he's buffed with _Soul Mass_",
-        "Roll into the second phase AoE and hit 3 times, then run away one mile while he does the combo"
+        "Roll into the second phase's AoE and hit 3 times, then run away one mile while he does the combo"
       ]
     },
     {
