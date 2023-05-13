@@ -10,3 +10,25 @@
   margin-top: 30vh;
   align-self: center;
 }
+
+.home-route-body {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-4);
+  align-items: center;
+}
+
+.home-route-socials {
+  display: flex;
+  column-gap: var(--spacing-3);
+  justify-content: center;
+}
+
+.home-route-projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: var(--spacing-3);
+  max-width: 300px;
+  width: 100%;
+}

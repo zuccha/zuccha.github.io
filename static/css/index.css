@@ -5,13 +5,13 @@
 @import url("./components/GuideFilters.css");
 @import url("./components/GuideViewer.css");
 @import url("./components/Header.css");
+@import url("./components/IconButton.css");
 @import url("./components/NavigationBar.css");
-@import url("./components/NavigationGrid.css");
 @import url("./components/Separator.css");
 @import url("./components/Text.css");
+@import url("./routes/GameRoute.css");
 @import url("./routes/GuideRoute.css");
 @import url("./routes/HomeRoute.css");
-@import url("./routes/MoreRoute.css");
 
 * {
   --max-page-width: 800px;
@@ -43,6 +43,8 @@
   --font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+
+  box-sizing: border-box;
 }
 
 body {
@@ -61,4 +63,14 @@ code {
 
 .hidden {
   display: none;
+}
+
+a {
+  color: var(--color-primary-1);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-1);
+  text-decoration: underline;
 }
