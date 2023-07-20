@@ -1,7 +1,7 @@
 {
   "_schema": "dark-souls-3",
   "gameTitle": "Dark Souls III",
-  "categories": ["Any%", "Glitchless", "SL1", "No Armor"],
+  "categories": ["Any%", "Glitchless", "SL1"],
   "description": [
     "Challenge run for improving your skill level.",
     "This run is meant for people who want to challenge themselves and improve their knowledge of the game, but have little to no experience with challenge runs or speed runs and don't know where to start.",
@@ -280,7 +280,7 @@
       "comments": [
         "The ring grants a boost on damage based on your equip load, so with the build of this guide it will range between 7.5% (13.5 equip load) to 10% (9 equip load)",
         "Removing _Sorcerer's Staff_ and _Grass Crest Shield_ during fights might increase the damage dealt",
-        "[More about _Flynn's Ring_](http://darksouls3.wikidot.com/)ring:flynn-s-ring",
+        "[More about _Flynn's Ring_](http://darksouls3.wikidot.com/ring:flynn-s-ring)",
         "This is a very long detour, and it is questionable whether the ring is worth or not"
       ],
       "optional": true
