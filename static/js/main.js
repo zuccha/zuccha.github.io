@@ -328,7 +328,7 @@ var L = k((le, V)=>{
     "use strict";
     V.exports = D();
 });
-var F = H(L()), { Children: ae , Component: pe , Fragment: ye , Profiler: de , PureComponent: _e , StrictMode: me , Suspense: he , __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ve , cloneElement: Se , createContext: Ee , createElement: Re , createFactory: Ce , createRef: ke , forwardRef: we , isValidElement: be , lazy: $e , memo: xe , startTransition: Oe , unstable_act: je , useCallback: Ie , useContext: ge , useDebugValue: Pe , useDeferredValue: Te , useEffect: De , useId: Ve , useImperativeHandle: Le , useInsertionEffect: Ne , useLayoutEffect: Fe , useMemo: Ue , useReducer: qe , useRef: Ae , useState: Me , useSyncExternalStore: ze , useTransition: Be , version: He  } = F, { default: N , ...ce } = F, We = N !== void 0 ? N : ce;
+var F = H(L()), { Children: ae, Component: pe, Fragment: ye, Profiler: de, PureComponent: _e, StrictMode: me, Suspense: he, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ve, cloneElement: Se, createContext: Ee, createElement: Re, createFactory: Ce, createRef: ke, forwardRef: we, isValidElement: be, lazy: $e, memo: xe, startTransition: Oe, unstable_act: je, useCallback: Ie, useContext: ge, useDebugValue: Pe, useDeferredValue: Te, useEffect: De, useId: Ve, useImperativeHandle: Le, useInsertionEffect: Ne, useLayoutEffect: Fe, useMemo: Ue, useReducer: qe, useRef: Ae, useState: Me, useSyncExternalStore: ze, useTransition: Be, version: He } = F, { default: N, ...ce } = F, We = N !== void 0 ? N : ce;
 const mod = {
     Children: ae,
     Component: pe,
@@ -31089,19 +31089,19 @@ var util;
         return obj;
     };
     util.getValidEnumValues = (obj)=>{
-        const validKeys = objectKeys(obj).filter((k)=>typeof obj[obj[k]] !== "number");
+        const validKeys = util.objectKeys(obj).filter((k)=>typeof obj[obj[k]] !== "number");
         const filtered = {};
         for (const k of validKeys){
             filtered[k] = obj[k];
         }
-        return objectValues(filtered);
+        return util.objectValues(filtered);
     };
-    var objectValues = util.objectValues = (obj)=>{
-        return objectKeys(obj).map(function(e) {
+    util.objectValues = (obj)=>{
+        return util.objectKeys(obj).map(function(e) {
             return obj[e];
         });
     };
-    var objectKeys = util.objectKeys = typeof Object.keys === "function" ? (obj)=>Object.keys(obj) : (object)=>{
+    util.objectKeys = typeof Object.keys === "function" ? (obj)=>Object.keys(obj) : (object)=>{
         const keys = [];
         for(const key in object){
             if (Object.prototype.hasOwnProperty.call(object, key)) {
@@ -31201,7 +31201,7 @@ const getParsedType = (data)=>{
     }
 };
 const makeIssue = (params)=>{
-    const { data , path , errorMaps , issueData  } = params;
+    const { data, path, errorMaps, issueData } = params;
     const fullPath = [
         ...path,
         ...issueData.path || []
@@ -31447,7 +31447,7 @@ class ParseStatus {
     static mergeObjectSync(status, pairs) {
         const finalObject = {};
         for (const pair of pairs){
-            const { key , value  } = pair;
+            const { key, value } = pair;
             if (key.status === "aborted") return INVALID;
             if (value.status === "aborted") return INVALID;
             if (key.status === "dirty") status.dirty();
@@ -31521,7 +31521,7 @@ const handleResult = (ctx, result)=>{
 };
 function processCreateParams(params) {
     if (!params) return {};
-    const { errorMap , invalid_type_error , required_error , description  } = params;
+    const { errorMap, invalid_type_error, required_error, description } = params;
     if (errorMap && (invalid_type_error || required_error)) {
         throw new Error(`Can't use "invalid" or "required" in conjunction with custom error map.`);
     }
@@ -32360,7 +32360,7 @@ class ZodVoid extends ZodType {
 }
 class ZodArray extends ZodType {
     _parse(input) {
-        const { ctx , status  } = this._processInputParams(input);
+        const { ctx, status } = this._processInputParams(input);
         const def = this._def;
         if (ctx.parsedType !== ZodParsedType.array) {
             addIssueToContext(ctx, {
@@ -32509,8 +32509,8 @@ class ZodObject extends ZodType {
             });
             return INVALID;
         }
-        const { status , ctx  } = this._processInputParams(input);
-        const { shape , keys: shapeKeys  } = this._getCached();
+        const { status, ctx } = this._processInputParams(input);
+        const { shape, keys: shapeKeys } = this._getCached();
         const extraKeys = [];
         for(const key in ctx.data){
             if (!shapeKeys.includes(key)) {
@@ -32740,7 +32740,7 @@ class ZodObject extends ZodType {
 }
 class ZodUnion extends ZodType {
     _parse(input) {
-        const { ctx  } = this._processInputParams(input);
+        const { ctx } = this._processInputParams(input);
         const options = this._def.options;
         function handleResults(results) {
             for (const result of results){
@@ -32834,7 +32834,7 @@ class ZodUnion extends ZodType {
 }
 class ZodDiscriminatedUnion extends ZodType {
     _parse(input) {
-        const { ctx  } = this._processInputParams(input);
+        const { ctx } = this._processInputParams(input);
         if (ctx.parsedType !== ZodParsedType.object) {
             addIssueToContext(ctx, {
                 code: ZodIssueCode.invalid_type,
@@ -32963,7 +32963,7 @@ function mergeValues(a, b) {
 }
 class ZodIntersection extends ZodType {
     _parse(input) {
-        const { status , ctx  } = this._processInputParams(input);
+        const { status, ctx } = this._processInputParams(input);
         const handleParsed = (parsedLeft, parsedRight)=>{
             if (isAborted(parsedLeft) || isAborted(parsedRight)) {
                 return INVALID;
@@ -33019,7 +33019,7 @@ class ZodIntersection extends ZodType {
 }
 class ZodTuple extends ZodType {
     _parse(input) {
-        const { status , ctx  } = this._processInputParams(input);
+        const { status, ctx } = this._processInputParams(input);
         if (ctx.parsedType !== ZodParsedType.array) {
             addIssueToContext(ctx, {
                 code: ZodIssueCode.invalid_type,
@@ -33086,7 +33086,7 @@ class ZodRecord extends ZodType {
         return this._def.valueType;
     }
     _parse(input) {
-        const { status , ctx  } = this._processInputParams(input);
+        const { status, ctx } = this._processInputParams(input);
         if (ctx.parsedType !== ZodParsedType.object) {
             addIssueToContext(ctx, {
                 code: ZodIssueCode.invalid_type,
@@ -33132,7 +33132,7 @@ class ZodRecord extends ZodType {
 }
 class ZodMap extends ZodType {
     _parse(input) {
-        const { status , ctx  } = this._processInputParams(input);
+        const { status, ctx } = this._processInputParams(input);
         if (ctx.parsedType !== ZodParsedType.map) {
             addIssueToContext(ctx, {
                 code: ZodIssueCode.invalid_type,
@@ -33206,7 +33206,7 @@ class ZodMap extends ZodType {
 }
 class ZodSet extends ZodType {
     _parse(input) {
-        const { status , ctx  } = this._processInputParams(input);
+        const { status, ctx } = this._processInputParams(input);
         if (ctx.parsedType !== ZodParsedType.set) {
             addIssueToContext(ctx, {
                 code: ZodIssueCode.invalid_type,
@@ -33298,7 +33298,7 @@ class ZodSet extends ZodType {
 }
 class ZodFunction extends ZodType {
     _parse(input) {
-        const { ctx  } = this._processInputParams(input);
+        const { ctx } = this._processInputParams(input);
         if (ctx.parsedType !== ZodParsedType.function) {
             addIssueToContext(ctx, {
                 code: ZodIssueCode.invalid_type,
@@ -33417,7 +33417,7 @@ class ZodLazy extends ZodType {
         return this._def.getter();
     }
     _parse(input) {
-        const { ctx  } = this._processInputParams(input);
+        const { ctx } = this._processInputParams(input);
         const lazySchema = this._def.getter();
         return lazySchema._parse({
             data: ctx.data,
@@ -33552,7 +33552,7 @@ class ZodNativeEnum extends ZodType {
 }
 class ZodPromise extends ZodType {
     _parse(input) {
-        const { ctx  } = this._processInputParams(input);
+        const { ctx } = this._processInputParams(input);
         if (ctx.parsedType !== ZodParsedType.promise && ctx.common.async === false) {
             addIssueToContext(ctx, {
                 code: ZodIssueCode.invalid_type,
@@ -33582,7 +33582,7 @@ class ZodEffects extends ZodType {
         return this._def.schema;
     }
     _parse(input) {
-        const { status , ctx  } = this._processInputParams(input);
+        const { status, ctx } = this._processInputParams(input);
         const effect = this._def.effect || null;
         if (effect.type === "preprocess") {
             const processed = effect.transform(ctx.data);
@@ -33749,7 +33749,7 @@ class ZodNullable extends ZodType {
 }
 class ZodDefault extends ZodType {
     _parse(input) {
-        const { ctx  } = this._processInputParams(input);
+        const { ctx } = this._processInputParams(input);
         let data = ctx.data;
         if (ctx.parsedType === ZodParsedType.undefined) {
             data = this._def.defaultValue();
@@ -34634,7 +34634,7 @@ var l14 = s14((D, f)=>{
 var h14 = s14((F, m)=>{
     m.exports = l14()();
 });
-var O13 = x13(h14()), { array: A13 , bigint: L14 , bool: U14 , func: V13 , number: B14 , object: H14 , string: Y13 , symbol: z15 , any: G14 , arrayOf: J14 , element: K14 , elementType: M14 , instanceOf: Q14 , node: X14 , objectOf: Z13 , oneOf: $13 , oneOfType: ee2 , shape: re2 , exact: te2 , checkPropTypes: oe2 , resetWarningCache: ne2 , PropTypes: se2  } = O13, { default: T14 , ...k13 } = O13, ae3 = T14 !== void 0 ? T14 : k13;
+var O13 = x13(h14()), { array: A13, bigint: L14, bool: U14, func: V13, number: B14, object: H14, string: Y13, symbol: z15, any: G14, arrayOf: J14, element: K14, elementType: M14, instanceOf: Q14, node: X14, objectOf: Z13, oneOf: $13, oneOfType: ee2, shape: re2, exact: te2, checkPropTypes: oe2, resetWarningCache: ne2, PropTypes: se2 } = O13, { default: T14, ...k13 } = O13, ae3 = T14 !== void 0 ? T14 : k13;
 function T15(e, t) {
     var r = Object.keys(e);
     if (Object.getOwnPropertySymbols) {
@@ -35172,7 +35172,7 @@ var Q16 = B16((ae, K)=>{
     "use strict";
     K.exports = J16();
 });
-var V15 = te3(Q16()), { unstable_now: oe3 , unstable_IdlePriority: se3 , unstable_ImmediatePriority: ce3 , unstable_LowPriority: fe2 , unstable_NormalPriority: be3 , unstable_Profiling: _e3 , unstable_UserBlockingPriority: de3 , unstable_cancelCallback: pe3 , unstable_continueExecution: ve3 , unstable_forceFrameRate: ye3 , unstable_getCurrentPriorityLevel: me3 , unstable_getFirstCallbackNode: ge3 , unstable_next: he3 , unstable_pauseExecution: ke3 , unstable_requestPaint: Pe3 , unstable_runWithPriority: we3 , unstable_scheduleCallback: xe3 , unstable_shouldYield: Ie3 , unstable_wrapCallback: Ce3  } = V15, { default: S14 , ...le2 } = V15, Ee3 = S14 !== void 0 ? S14 : le2;
+var V15 = te3(Q16()), { unstable_now: oe3, unstable_IdlePriority: se3, unstable_ImmediatePriority: ce3, unstable_LowPriority: fe2, unstable_NormalPriority: be3, unstable_Profiling: _e3, unstable_UserBlockingPriority: de3, unstable_cancelCallback: pe3, unstable_continueExecution: ve3, unstable_forceFrameRate: ye3, unstable_getCurrentPriorityLevel: me3, unstable_getFirstCallbackNode: ge3, unstable_next: he3, unstable_pauseExecution: ke3, unstable_requestPaint: Pe3, unstable_runWithPriority: we3, unstable_scheduleCallback: xe3, unstable_shouldYield: Ie3, unstable_wrapCallback: Ce3 } = V15, { default: S14, ...le2 } = V15, Ee3 = S14 !== void 0 ? S14 : le2;
 var wa2 = Object.create;
 var ru1 = Object.defineProperty;
 var Sa2 = Object.getOwnPropertyDescriptor;
@@ -41029,7 +41029,7 @@ var ha2 = iu1((Tf, ma)=>{
     }
     pa(), ma.exports = da2();
 });
-var ya2 = Na2(ha2()), { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Mf1 , createPortal: Df1 , createRoot: Of1 , findDOMNode: Rf1 , flushSync: Ff1 , hydrate: If1 , hydrateRoot: Uf1 , render: jf1 , unmountComponentAtNode: Vf1 , unstable_batchedUpdates: Af1 , unstable_renderSubtreeIntoContainer: Bf1 , version: Hf1  } = ya2, { default: va2 , ...zf1 } = ya2, Wf1 = va2 !== void 0 ? va2 : zf1;
+var ya2 = Na2(ha2()), { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Mf1, createPortal: Df1, createRoot: Of1, findDOMNode: Rf1, flushSync: Ff1, hydrate: If1, hydrateRoot: Uf1, render: jf1, unmountComponentAtNode: Vf1, unstable_batchedUpdates: Af1, unstable_renderSubtreeIntoContainer: Bf1, version: Hf1 } = ya2, { default: va2, ...zf1 } = ya2, Wf1 = va2 !== void 0 ? va2 : zf1;
 const mod8 = {
     default: Wf1,
     __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Mf1,
@@ -41069,7 +41069,7 @@ var s15 = p13((h, o)=>{
         return t != null && t.constructor != null && typeof t.constructor.isBuffer == "function" && t.constructor.isBuffer(t);
     };
 });
-var x14 = B17(s15()), { default: c16 , ...y14 } = x14, k14 = c16 !== void 0 ? c16 : y14;
+var x14 = B17(s15()), { default: c16, ...y14 } = x14, k14 = c16 !== void 0 ? c16 : y14;
 function o14(n) {
     return !n || typeof n != "object" ? "" : "position" in n || "type" in n ? t13(n.position) : "start" in n || "end" in n ? t13(n) : "line" in n || "column" in n ? i16(n) : "";
 }
@@ -41391,7 +41391,7 @@ var m16 = I14((z, g)=>{
         return o;
     };
 });
-var C15 = k15(m16()), { default: w14 , ...j15 } = C15, B18 = w14 !== void 0 ? w14 : j15;
+var C15 = k15(m16()), { default: w14, ...j15 } = C15, B18 = w14 !== void 0 ? w14 : j15;
 function e14(t) {
     if (typeof t != "object" || t === null) return !1;
     let o = Object.getPrototypeOf(t);
@@ -41590,7 +41590,7 @@ function K16(t) {
     return typeof t == "string" || k14(t);
 }
 function l16(r, t) {
-    var { includeImageAlt: i = !0  } = t || {};
+    var { includeImageAlt: i = !0 } = t || {};
     return a16(r, i);
 }
 function a16(r, t) {
@@ -46333,7 +46333,7 @@ var d18 = v15((I, s)=>{
     i.componentChars = "-_.!~*'()";
     s.exports = i;
 });
-var l20 = B24(d18()), { defaultChars: R18 , componentChars: S18  } = l20, { default: F16 , ...$16 } = l20, z17 = F16 !== void 0 ? F16 : $16;
+var l20 = B24(d18()), { defaultChars: R18, componentChars: S18 } = l20, { default: F16, ...$16 } = l20, z17 = F16 !== void 0 ? F16 : $16;
 var u16 = {}.hasOwnProperty;
 function M16(e, t) {
     let r = t.data || {};
@@ -47912,7 +47912,7 @@ var h23 = P19((Z, z)=>{
     "use strict";
     z.exports = F19();
 });
-var L18 = D20(h23()), { ContextConsumer: x26 , ContextProvider: ee4 , Element: te4 , ForwardRef: re3 , Fragment: oe4 , Lazy: ne4 , Memo: se4 , Portal: ie2 , Profiler: ce4 , StrictMode: ue2 , Suspense: fe3 , isAsyncMode: le3 , isConcurrentMode: pe4 , isContextConsumer: de4 , isContextProvider: ae4 , isElement: me4 , isForwardRef: ye4 , isFragment: $e3 , isLazy: Ce4 , isMemo: ve4 , isPortal: _e4 , isProfiler: Me4 , isStrictMode: Pe5 , isSuspense: Se3 , isValidElementType: be4 , typeOf: ge4  } = L18, { default: j19 , ...W16 } = L18, we4 = j19 !== void 0 ? j19 : W16;
+var L18 = D20(h23()), { ContextConsumer: x26, ContextProvider: ee4, Element: te4, ForwardRef: re3, Fragment: oe4, Lazy: ne4, Memo: se4, Portal: ie2, Profiler: ce4, StrictMode: ue2, Suspense: fe3, isAsyncMode: le3, isConcurrentMode: pe4, isContextConsumer: de4, isContextProvider: ae4, isElement: me4, isForwardRef: ye4, isFragment: $e3, isLazy: Ce4, isMemo: ve4, isPortal: _e4, isProfiler: Me4, isStrictMode: Pe5, isSuspense: Se3, isValidElementType: be4, typeOf: ge4 } = L18, { default: j19, ...W16 } = L18, we4 = j19 !== void 0 ? j19 : W16;
 function o17(e) {
     let t = e && typeof e == "object" && e.type === "text" ? e.value || "" : e;
     return typeof t == "string" && t.replace(/[ \t\n\f\r]/g, "") === "";
@@ -48046,7 +48046,7 @@ var g20 = C20((B, T)=>{
         return n ? n.replace(K, u) : u;
     }
 });
-var j20 = W17(g20()), { default: w19 , ...k19 } = j20, J19 = w19 !== void 0 ? w19 : k19;
+var j20 = W17(g20()), { default: w19, ...k19 } = j20, J19 = w19 !== void 0 ? w19 : k19;
 var c20 = Object.create;
 var l25 = Object.defineProperty;
 var _18 = Object.getOwnPropertyDescriptor;
@@ -48082,7 +48082,7 @@ var v17 = x28((k, p)=>{
     }
     p.exports = I;
 });
-var O17 = j23(v17()), { default: d20 , ...S24 } = O17, w20 = d20 !== void 0 ? d20 : S24;
+var O17 = j23(v17()), { default: d20, ...S24 } = O17, w20 = d20 !== void 0 ? d20 : S24;
 var N17 = [
     "http",
     "https",
@@ -48308,7 +48308,7 @@ function pr2(e) {
     e === void 0 && (e = {});
     let { initialEntries: t = [
         "/"
-    ] , initialIndex: r , v5Compat: n = !1  } = e, a;
+    ], initialIndex: r, v5Compat: n = !1 } = e, a;
     a = t.map((i, h)=>p(i, typeof i == "string" ? null : i.state, h === 0 ? "default" : void 0));
     let o = g(r ?? a.length - 1), l = O18.Pop, f = null;
     function g(i) {
@@ -48375,7 +48375,7 @@ function pr2(e) {
 function mr2(e) {
     e === void 0 && (e = {});
     function t(n, a) {
-        let { pathname: o , search: l , hash: f  } = n.location;
+        let { pathname: o, search: l, hash: f } = n.location;
         return G18("", {
             pathname: o,
             search: l,
@@ -48390,7 +48390,7 @@ function mr2(e) {
 function gr1(e) {
     e === void 0 && (e = {});
     function t(a, o) {
-        let { pathname: l = "/" , search: f = "" , hash: g = ""  } = V23(a.location.hash.substr(1));
+        let { pathname: l = "/", search: f = "", hash: g = "" } = V23(a.location.hash.substr(1));
         return G18("", {
             pathname: l,
             search: f,
@@ -48441,7 +48441,7 @@ function G18(e, t, r, n) {
     });
 }
 function W18(e) {
-    let { pathname: t = "/" , search: r = "" , hash: n = ""  } = e;
+    let { pathname: t = "/", search: r = "", hash: n = "" } = e;
     return r && r !== "?" && (t += r.charAt(0) === "?" ? r : "?" + r), n && n !== "#" && (t += n.charAt(0) === "#" ? n : "#" + n), t;
 }
 function V23(e) {
@@ -48460,7 +48460,7 @@ function ge5(e) {
 }
 function rt4(e, t, r, n) {
     n === void 0 && (n = {});
-    let { window: a = document.defaultView , v5Compat: o = !1  } = n, l = a.history, f = O18.Pop, g = null;
+    let { window: a = document.defaultView, v5Compat: o = !1 } = n, l = a.history, f = O18.Pop, g = null;
     function u() {
         f = O18.Pop, g && g({
             action: f,
@@ -48609,7 +48609,7 @@ function Bt2(e, t) {
     return e.length === t.length && e.slice(0, -1).every((n, a)=>n === t[a]) ? e[e.length - 1] - t[t.length - 1] : 0;
 }
 function Wt2(e, t) {
-    let { routesMeta: r  } = e, n = {}, a = "/", o = [];
+    let { routesMeta: r } = e, n = {}, a = "/", o = [];
     for(let l = 0; l < r.length; ++l){
         let f = r[l], g = l === r.length - 1, u = a === "/" ? t : t.slice(a.length) || "/", p = Kt2({
             path: f.relativePath,
@@ -48705,7 +48705,7 @@ function Se4(e, t) {
 }
 function Gt3(e, t) {
     t === void 0 && (t = "/");
-    let { pathname: r , search: n = "" , hash: a = ""  } = typeof e == "string" ? V23(e) : e;
+    let { pathname: r, search: n = "", hash: a = "" } = typeof e == "string" ? V23(e) : e;
     return {
         pathname: r ? r.startsWith("/") ? r : Qt3(r, t) : t,
         search: qt3(n),
@@ -48886,7 +48886,7 @@ function Rr1(e) {
     if (g == null) {
         let s = N18(404, {
             pathname: e.history.location.pathname
-        }), { matches: d , route: m  } = Me5(t);
+        }), { matches: d, route: m } = Me5(t);
         g = d, u = {
             [m.id]: s
         };
@@ -48907,7 +48907,7 @@ function Rr1(e) {
     }, h = O18.Pop, c = !1, b, R = !1, M = !1, F = [], j = [], P = new Map, I = 0, Ae = -1, se = new Map, we = new Set, ae = new Map, X = new Map;
     function mt() {
         return r = e.history.listen((s)=>{
-            let { action: d , location: m  } = s;
+            let { action: d, location: m } = s;
             return Z(d, m);
         }), i.initialized || Z(O18.Pop, i.location), w;
     }
@@ -48942,7 +48942,7 @@ function Rr1(e) {
             e.history.go(s);
             return;
         }
-        let { path: m , submission: v , error: y  } = Ye2(s, d), E = G18(i.location, m, d && d.state);
+        let { path: m, submission: v, error: y } = Ye2(s, d), E = G18(i.location, m, d && d.state);
         E = A24({}, E, e.history.encodeLocation(E));
         let S = d && d.replace != null ? d.replace : void 0, x = O18.Push;
         S === !0 ? x = O18.Replace : S === !1 || v != null && Q18(v.formMethod) && v.formAction === i.location.pathname + i.location.search && (x = O18.Replace);
@@ -48975,7 +48975,7 @@ function Rr1(e) {
         if (!y) {
             let T = N18(404, {
                 pathname: d.pathname
-            }), { matches: K , route: z  } = Me5(t);
+            }), { matches: K, route: z } = Me5(t);
             Fe(), de(d, {
                 matches: K,
                 loaderData: {},
@@ -49008,7 +49008,7 @@ function Rr1(e) {
                 signal: E.signal
             });
         }
-        let { shortCircuited: D , loaderData: U , errors: L  } = await Dt(E, d, y, v, m && m.submission, m && m.replace, S, x);
+        let { shortCircuited: D, loaderData: U, errors: L } = await Dt(E, d, y, v, m && m.submission, m && m.replace, S, x);
         D || (b = null, de(d, A24({
             matches: y
         }, S ? {
@@ -49117,7 +49117,7 @@ function Rr1(e) {
             let [B] = H;
             return P.set(B, b);
         });
-        let { results: K , loaderResults: z , fetcherResults: ce  } = await Ie(i.matches, m, L, T, s);
+        let { results: K, loaderResults: z, fetcherResults: ce } = await Ie(i.matches, m, L, T, s);
         if (s.signal.aborted) return {
             shortCircuited: !0
         };
@@ -49131,7 +49131,7 @@ function Rr1(e) {
         }), {
             shortCircuited: !0
         };
-        let { loaderData: De , errors: ie  } = Qe1(i, m, L, z, x, T, ce, X);
+        let { loaderData: De, errors: ie } = Qe1(i, m, L, z, x, T, ce, X);
         X.forEach((H, B)=>{
             H.subscribe((q)=>{
                 (q || H.done) && X.delete(B);
@@ -49158,7 +49158,7 @@ function Rr1(e) {
             }));
             return;
         }
-        let { path: E , submission: S  } = Ye2(m, v, !0), x = Ee4(y, E);
+        let { path: E, submission: S } = Ye2(m, v, !0), x = Ee4(y, E);
         if (S && Q18(S.formMethod)) {
             Pt(s, d, E, x, y, S);
             return;
@@ -49245,7 +49245,7 @@ function Rr1(e) {
         }), $({
             fetchers: new Map(i.fetchers)
         });
-        let { results: Te , loaderResults: H , fetcherResults: B  } = await Ie(i.matches, z, De, ie, K);
+        let { results: Te, loaderResults: H, fetcherResults: B } = await Ie(i.matches, z, De, ie, K);
         if (D.signal.aborted) return;
         se.delete(s), P.delete(s), ie.forEach((Y)=>{
             let [k] = Y;
@@ -49253,7 +49253,7 @@ function Rr1(e) {
         });
         let q = Ze1(Te);
         if (q) return ue(i, q);
-        let { loaderData: fe , errors: he  } = Qe1(i, i.matches, De, H, void 0, ie, B, X), xt = {
+        let { loaderData: fe, errors: he } = Qe1(i, i.matches, De, H, void 0, ie, B, X), xt = {
             state: "idle",
             data: L.data,
             formMethod: void 0,
@@ -49324,7 +49324,7 @@ function Rr1(e) {
     }
     async function ue(s, d, m) {
         var v;
-        let { submission: y , replace: E , isFetchActionRedirect: S  } = m === void 0 ? {} : m;
+        let { submission: y, replace: E, isFetchActionRedirect: S } = m === void 0 ? {} : m;
         d.revalidate && (M = !0);
         let x = G18(s.location, d.location, A24({
             _isRedirect: !0
@@ -49339,7 +49339,7 @@ function Rr1(e) {
             }
         }
         b = null;
-        let D = E === !0 ? O18.Replace : O18.Push, { formMethod: U , formAction: L , formEncType: T , formData: K  } = s.navigation;
+        let D = E === !0 ? O18.Replace : O18.Push, { formMethod: U, formAction: L, formEncType: T, formData: K } = s.navigation;
         !y && U && L && K && T && (y = {
             formMethod: U,
             formAction: L,
@@ -49653,7 +49653,7 @@ function pe5(e, t, r) {
         signal: t
     };
     if (r && Q18(r.formMethod)) {
-        let { formMethod: o , formEncType: l , formData: f  } = r;
+        let { formMethod: o, formEncType: l, formData: f } = r;
         a.method = o.toUpperCase(), a.body = l === "application/x-www-form-urlencoded" ? ut3(f) : f;
     }
     return new Request(n, a);
@@ -49679,7 +49679,7 @@ function ct3(e, t, r, n, a) {
     };
 }
 function Qe1(e, t, r, n, a, o, l, f) {
-    let { loaderData: g , errors: u  } = ct3(t, r, n, a, f);
+    let { loaderData: g, errors: u } = ct3(t, r, n, a, f);
     for(let p = 0; p < o.length; p++){
         let [w, , i] = o[p];
         C24(l !== void 0 && l[p] !== void 0, "Did not find corresponding fetcher result");
@@ -49741,7 +49741,7 @@ function Me5(e) {
     };
 }
 function N18(e, t) {
-    let { pathname: r , routeId: n , method: a  } = t === void 0 ? {} : t, o = "Unknown Server Error", l = "Unknown @remix-run/router error";
+    let { pathname: r, routeId: n, method: a } = t === void 0 ? {} : t, o = "Unknown Server Error", l = "Unknown @remix-run/router error";
     return e === 400 ? (o = "Bad Request", a && r && n ? l = "You made a " + a + ' request to "' + r + '" but ' + ('did not provide a `loader` for route "' + n + '", ') + "so there is no way to handle the request." : l = "Cannot submit binary form data using GET") : e === 403 ? (o = "Forbidden", l = 'Route "' + n + '" does not match URL "' + r + '"') : e === 404 ? (o = "Not Found", l = 'No route matches URL "' + r + '"') : e === 405 && (o = "Method Not Allowed", a && r && n ? l = "You made a " + a.toUpperCase() + ' request to "' + r + '" but ' + ('did not provide an `action` for route "' + n + '", ') + "so there is no way to handle the request." : a && (l = 'Invalid request method "' + a.toUpperCase() + '"')), new ye5(e || 500, o, new Error(l), !0);
 }
 function Ze1(e) {
@@ -49808,7 +49808,7 @@ function pt3(e) {
     return new URLSearchParams(e).getAll("index").some((t)=>t === "");
 }
 function et4(e, t) {
-    let { route: r , pathname: n , params: a  } = e;
+    let { route: r, pathname: n, params: a } = e;
     return {
         id: r.id,
         pathname: n,
@@ -49835,9 +49835,9 @@ function O19() {
 function te6(t, e) {
     return t === e && (t !== 0 || 1 / t === 1 / e) || t !== t && e !== e;
 }
-var ne6 = typeof Object.is == "function" ? Object.is : te6, { useState: re5 , useEffect: ae5 , useLayoutEffect: oe6 , useDebugValue: ie3  } = mod;
+var ne6 = typeof Object.is == "function" ? Object.is : te6, { useState: re5, useEffect: ae5, useLayoutEffect: oe6, useDebugValue: ie3 } = mod;
 function se5(t, e, r) {
-    let a = e(), [{ inst: o  }, i] = re5({
+    let a = e(), [{ inst: o }, i] = re5({
         inst: {
             value: a,
             getSnapshot: e
@@ -49878,9 +49878,9 @@ var le5 = typeof document < "u" && typeof window.document < "u" && typeof window
     matches: []
 }), J24 = mod.createContext(null);
 function Se5(t, e) {
-    let { relative: r  } = e === void 0 ? {} : e;
+    let { relative: r } = e === void 0 ? {} : e;
     E18() || C24(!1);
-    let { basename: a , navigator: o  } = mod.useContext(w24), { hash: i , pathname: s , search: l  } = ve5(t, {
+    let { basename: a, navigator: o } = mod.useContext(w24), { hash: i, pathname: s, search: l } = ve5(t, {
         relative: r
     }), u = s;
     return a !== "/" && (u = s === "/" ? a : me5([
@@ -49903,7 +49903,7 @@ function we5() {
 }
 function Ve4(t) {
     E18() || C24(!1);
-    let { pathname: e  } = V24();
+    let { pathname: e } = V24();
     return mod.useMemo(()=>Kt2(t, e), [
         e,
         t
@@ -49911,7 +49911,7 @@ function Ve4(t) {
 }
 function he4() {
     E18() || C24(!1);
-    let { basename: t , navigator: e  } = mod.useContext(w24), { matches: r  } = mod.useContext(m25), { pathname: a  } = V24(), o = JSON.stringify(it3(r).map((l)=>l.pathnameBase)), i = mod.useRef(!1);
+    let { basename: t, navigator: e } = mod.useContext(w24), { matches: r } = mod.useContext(m25), { pathname: a } = V24(), o = JSON.stringify(it3(r).map((l)=>l.pathnameBase)), i = mod.useRef(!1);
     return mod.useEffect(()=>{
         i.current = !0;
     }), mod.useCallback(function(l, u) {
@@ -49943,11 +49943,11 @@ function fe4(t) {
     }, e);
 }
 function Le3() {
-    let { matches: t  } = mod.useContext(m25), e = t[t.length - 1];
+    let { matches: t } = mod.useContext(m25), e = t[t.length - 1];
     return e ? e.params : {};
 }
 function ve5(t, e) {
-    let { relative: r  } = e === void 0 ? {} : e, { matches: a  } = mod.useContext(m25), { pathname: o  } = V24(), i = JSON.stringify(it3(a).map((s)=>s.pathnameBase));
+    let { relative: r } = e === void 0 ? {} : e, { matches: a } = mod.useContext(m25), { pathname: o } = V24(), i = JSON.stringify(it3(a).map((s)=>s.pathnameBase));
     return mod.useMemo(()=>Xt2(t, JSON.parse(i), o, r === "path"), [
         t,
         i,
@@ -49957,7 +49957,7 @@ function ve5(t, e) {
 }
 function me6(t, e) {
     E18() || C24(!1);
-    let { navigator: r  } = mod.useContext(w24), a = mod.useContext(S26), { matches: o  } = mod.useContext(m25), i = o[o.length - 1], s = i ? i.params : {}, l = i ? i.pathname : "/", u = i ? i.pathnameBase : "/", p = i && i.route, R = V24(), v;
+    let { navigator: r } = mod.useContext(w24), a = mod.useContext(S26), { matches: o } = mod.useContext(m25), i = o[o.length - 1], s = i ? i.params : {}, l = i ? i.pathname : "/", u = i ? i.pathnameBase : "/", p = i && i.route, R = V24(), v;
     if (e) {
         var N;
         let h = typeof e == "string" ? V23(e) : e;
@@ -50043,7 +50043,7 @@ var M23 = class extends mod.Component {
     }
 };
 function Ee5(t) {
-    let { routeContext: e , match: r , children: a  } = t, o = mod.useContext(_20);
+    let { routeContext: e, match: r, children: a } = t, o = mod.useContext(_20);
     return o && o.static && o.staticContext && r.route.errorElement && (o.staticContext._deepestRenderedBoundaryId = r.route.id), mod.createElement(m25.Provider, {
         value: e
     }, a);
@@ -50111,9 +50111,9 @@ function Ae3() {
     };
 }
 function je4() {
-    let { matches: t , loaderData: e  } = g25(f20.UseMatches);
+    let { matches: t, loaderData: e } = g25(f20.UseMatches);
     return mod.useMemo(()=>t.map((r)=>{
-            let { pathname: a , params: o  } = r;
+            let { pathname: a, params: o } = r;
             return {
                 id: r.route.id,
                 pathname: a,
@@ -50155,7 +50155,7 @@ function Be2() {
     return t?._error;
 }
 function Ie4(t) {
-    let { fallbackElement: e , router: r  } = t, a = pe6(r.subscribe, ()=>r.state, ()=>r.state), o = mod.useMemo(()=>({
+    let { fallbackElement: e, router: r } = t, a = pe6(r.subscribe, ()=>r.state, ()=>r.state), o = mod.useMemo(()=>({
             createHref: r.createHref,
             encodeLocation: r.encodeLocation,
             go: (s)=>r.navigate(s),
@@ -50188,7 +50188,7 @@ function Ie4(t) {
     }, r.state.initialized ? mod.createElement(De3, null) : e))), null);
 }
 function We3(t) {
-    let { basename: e , children: r , initialEntries: a , initialIndex: o  } = t, i = mod.useRef();
+    let { basename: e, children: r, initialEntries: a, initialIndex: o } = t, i = mod.useRef();
     i.current == null && (i.current = pr2({
         initialEntries: a,
         initialIndex: o,
@@ -50209,7 +50209,7 @@ function We3(t) {
     });
 }
 function Je2(t) {
-    let { to: e , replace: r , state: a , relative: o  } = t;
+    let { to: e, replace: r, state: a, relative: o } = t;
     E18() || C24(!1);
     let i = mod.useContext(S26), s = he4();
     return mod.useEffect(()=>{
@@ -50227,7 +50227,7 @@ function Ce5(t) {
     C24(!1);
 }
 function z20(t) {
-    let { basename: e = "/" , children: r = null , location: a , navigationType: o = O18.Pop , navigator: i , static: s = !1  } = t;
+    let { basename: e = "/", children: r = null, location: a, navigationType: o = O18.Pop, navigator: i, static: s = !1 } = t;
     E18() && C24(!1);
     let l = e.replace(/^\/*/, "/"), u = mod.useMemo(()=>({
             basename: l,
@@ -50239,7 +50239,7 @@ function z20(t) {
         s
     ]);
     typeof a == "string" && (a = V23(a));
-    let { pathname: p = "/" , search: R = "" , hash: v = "" , state: N = null , key: y = "default"  } = a, D = mod.useMemo(()=>{
+    let { pathname: p = "/", search: R = "", hash: v = "", state: N = null, key: y = "default" } = a, D = mod.useMemo(()=>{
         let x = Jt2(p, l);
         return x == null ? null : {
             pathname: x,
@@ -50267,11 +50267,11 @@ function z20(t) {
     }));
 }
 function De3(t) {
-    let { children: e , location: r  } = t, a = mod.useContext(_20), o = a && !e ? a.router.routes : F24(e);
+    let { children: e, location: r } = t, a = mod.useContext(_20), o = a && !e ? a.router.routes : F24(e);
     return me6(o, r);
 }
 function Ge2(t) {
-    let { children: e , errorElement: r , resolve: a  } = t;
+    let { children: e, errorElement: r, resolve: a } = t;
     return mod.createElement(j24, {
         resolve: a,
         errorElement: r
@@ -50296,7 +50296,7 @@ var be5 = new Promise(()=>{}), j24 = class extends mod.Component {
         console.error("<Await> caught the following error during render", e, r);
     }
     render() {
-        let { children: e , errorElement: r , resolve: a  } = this.props, o = null, i = d24.pending;
+        let { children: e, errorElement: r, resolve: a } = this.props, o = null, i = d24.pending;
         if (!(a instanceof Promise)) i = d24.success, o = Promise.resolve(), Object.defineProperty(o, "_tracked", {
             get: ()=>!0
         }), Object.defineProperty(o, "_data", {
@@ -50331,7 +50331,7 @@ var be5 = new Promise(()=>{}), j24 = class extends mod.Component {
     }
 };
 function Oe4(t) {
-    let { children: e  } = t, r = xe4();
+    let { children: e } = t, r = xe4();
     return typeof e == "function" ? e(r) : mod.createElement(mod.Fragment, null, e);
 }
 function F24(t, e) {
@@ -50453,7 +50453,7 @@ function fe5(e, t, a) {
         else if (n = new FormData, e instanceof URLSearchParams) for (let [u, m] of e)n.append(u, m);
         else if (e != null) for (let u of Object.keys(e))n.append(u, e[u]);
     }
-    let { protocol: c , host: f  } = window.location;
+    let { protocol: c, host: f } = window.location;
     return {
         url: new URL(o, c + "//" + f),
         method: r.toLowerCase(),
@@ -50526,7 +50526,7 @@ function pe7(e) {
     return a;
 }
 function Ce6(e) {
-    let { basename: t , children: a , window: r  } = e, o = Ae();
+    let { basename: t, children: a, window: r } = e, o = Ae();
     o.current == null && (o.current = mr2({
         window: r,
         v5Compat: !0
@@ -50546,7 +50546,7 @@ function Ce6(e) {
     });
 }
 function De4(e) {
-    let { basename: t , children: a , window: r  } = e, o = Ae();
+    let { basename: t, children: a, window: r } = e, o = Ae();
     o.current == null && (o.current = gr1({
         window: r,
         v5Compat: !0
@@ -50566,7 +50566,7 @@ function De4(e) {
     });
 }
 function Le4(e) {
-    let { basename: t , children: a , history: r  } = e, [o, i] = Me({
+    let { basename: t, children: a, history: r } = e, [o, i] = Me({
         action: r.action,
         location: r.location
     });
@@ -50581,7 +50581,7 @@ function Le4(e) {
     });
 }
 var Re5 = we(function(t, a) {
-    let { onClick: r , relative: o , reloadDocument: i , replace: n , state: c , target: f , to: l , preventScrollReset: u  } = t, m = U19(t, de6), E = Se5(l, {
+    let { onClick: r, relative: o, reloadDocument: i, replace: n, state: c, target: f, to: l, preventScrollReset: u } = t, m = U19(t, de6), E = Se5(l, {
         relative: o
     }), y = ve6(l, {
         replace: n,
@@ -50600,9 +50600,9 @@ var Re5 = we(function(t, a) {
         target: f
     }));
 }), Pe7 = we(function(t, a) {
-    let { "aria-current": r = "page" , caseSensitive: o = !1 , className: i = "" , end: n = !1 , style: c , to: f , children: l  } = t, u = U19(t, me7), m = ve5(f, {
+    let { "aria-current": r = "page", caseSensitive: o = !1, className: i = "", end: n = !1, style: c, to: f, children: l } = t, u = U19(t, me7), m = ve5(f, {
         relative: u.relative
-    }), E = V24(), y = ge(S26), { navigator: w  } = ge(w24), d = w.encodeLocation ? w.encodeLocation(m).pathname : m.pathname, p = E.pathname, R = y && y.navigation && y.navigation.location ? y.navigation.location.pathname : null;
+    }), E = V24(), y = ge(S26), { navigator: w } = ge(w24), d = w.encodeLocation ? w.encodeLocation(m).pathname : m.pathname, p = E.pathname, R = y && y.navigation && y.navigation.location ? y.navigation.location.pathname : null;
     o || (p = p.toLowerCase(), R = R ? R.toLowerCase() : null, d = d.toLowerCase());
     let N = p === d || !n && p.startsWith(d) && p.charAt(d.length) === "/", g = R != null && (R === d || !n && R.startsWith(d) && R.charAt(d.length) === "/"), Q = N ? r : void 0, P;
     typeof i == "function" ? P = i({
@@ -50630,7 +50630,7 @@ var Re5 = we(function(t, a) {
 }), _e6 = we((e, t)=>Re(q18, h25({}, e, {
         ref: t
     }))), q18 = we((e, t)=>{
-    let { reloadDocument: a , replace: r , method: o = C26 , action: i , onSubmit: n , fetcherKey: c , routeId: f , relative: l  } = e, u = U19(e, he5), m = T20(c, f), E = o.toLowerCase() === "get" ? "get" : "post", y = $19(i, {
+    let { reloadDocument: a, replace: r, method: o = C26, action: i, onSubmit: n, fetcherKey: c, routeId: f, relative: l } = e, u = U19(e, he5), m = T20(c, f), E = o.toLowerCase() === "get" ? "get" : "post", y = $19(i, {
         relative: l
     });
     return Re("form", h25({
@@ -50650,7 +50650,7 @@ var Re5 = we(function(t, a) {
     }, u));
 });
 function Ae4(e) {
-    let { getKey: t , storageKey: a  } = e;
+    let { getKey: t, storageKey: a } = e;
     return we6({
         getKey: t,
         storageKey: a
@@ -50673,7 +50673,7 @@ function G20(e) {
     return t || C24(!1), t;
 }
 function ve6(e, t) {
-    let { target: a , replace: r , state: o , preventScrollReset: i , relative: n  } = t === void 0 ? {} : t, c = he4(), f = V24(), l = ve5(e, {
+    let { target: a, replace: r, state: o, preventScrollReset: i, relative: n } = t === void 0 ? {} : t, c = he4(), f = V24(), l = ve5(e, {
         relative: n
     });
     return Ie((u)=>{
@@ -50718,10 +50718,10 @@ function xe5() {
     return T20();
 }
 function T20(e, t) {
-    let { router: a  } = I19(b24.UseSubmitImpl), r = $19();
+    let { router: a } = I19(b24.UseSubmitImpl), r = $19();
     return Ie(function(o, i) {
         if (i === void 0 && (i = {}), typeof document > "u") throw new Error("You are calling submit during the server render. Try calling submit within a `useEffect` or callback instead.");
-        let { method: n , encType: c , formData: f , url: l  } = fe5(o, r, i), u = l.pathname + l.search, m = {
+        let { method: n, encType: c, formData: f, url: l } = fe5(o, r, i), u = l.pathname + l.search, m = {
             replace: i.replace,
             formData: f,
             formMethod: n,
@@ -50736,7 +50736,7 @@ function T20(e, t) {
     ]);
 }
 function $19(e, t) {
-    let { relative: a  } = t === void 0 ? {} : t, { basename: r  } = ge(w24), o = ge(m25);
+    let { relative: a } = t === void 0 ? {} : t, { basename: r } = ge(w24), o = ge(m25);
     o || C24(!1);
     let [i] = o.matches.slice(-1), n = h25({}, ve5(e || ".", {
         relative: a
@@ -50760,7 +50760,7 @@ function ye7(e, t) {
 var Ee6 = 0;
 function ke6() {
     var e;
-    let { router: t  } = I19(b24.UseFetcher), a = ge(m25);
+    let { router: t } = I19(b24.UseFetcher), a = ge(m25);
     a || C24(!1);
     let r = (e = a.matches[a.matches.length - 1]) == null ? void 0 : e.route.id;
     r == null && C24(!1);
@@ -50794,7 +50794,7 @@ function Ue5() {
 }
 var V25 = "react-router-scroll-positions", F25 = {};
 function we6(e) {
-    let { getKey: t , storageKey: a  } = e === void 0 ? {} : e, { router: r  } = I19(b24.UseScrollRestoration), { restoreScrollPosition: o , preventScrollReset: i  } = G20(D24.UseScrollRestoration), n = V24(), c = je4(), f = Me6();
+    let { getKey: t, storageKey: a } = e === void 0 ? {} : e, { router: r } = I19(b24.UseScrollRestoration), { restoreScrollPosition: o, preventScrollReset: i } = G20(D24.UseScrollRestoration), n = V24(), c = je4(), f = Me6();
     De(()=>(window.history.scrollRestoration = "manual", ()=>{
             window.history.scrollRestoration = "auto";
         }), []), Ne4(Ie(()=>{
@@ -51187,7 +51187,7 @@ var R24 = i23((E)=>{
         }
     };
 });
-var L25 = s25(R24()), { ATTRS: l26 , DOCUMENT_MODE: p27 , SPECIAL_ELEMENTS: B28  } = L25, { default: I20 , ...C27 } = L25, U20 = I20 !== void 0 ? I20 : C27;
+var L25 = s25(R24()), { ATTRS: l26, DOCUMENT_MODE: p27, SPECIAL_ELEMENTS: B28 } = L25, { default: I20, ...C27 } = L25, U20 = I20 !== void 0 ? I20 : C27;
 var l27 = Object.create;
 var i24 = Object.defineProperty;
 var f23 = Object.getOwnPropertyDescriptor;
@@ -51215,7 +51215,7 @@ var x29 = (e, t, o)=>(o = e != null ? l27(g26(e)) : {}, D26(t || !e || !e.__esMo
     }) : o, e));
 var a24 = T23((n)=>{
     "use strict";
-    var { DOCUMENT_MODE: y  } = U20;
+    var { DOCUMENT_MODE: y } = U20;
     n.createDocument = function() {
         return {
             nodeName: "#document",
@@ -51363,7 +51363,7 @@ var a24 = T23((n)=>{
         e.sourceCodeLocation = Object.assign(e.sourceCodeLocation, t);
     };
 });
-var N20 = x29(a24()), { createDocument: O23 , createDocumentFragment: _24 , createElement: M25 , createCommentNode: v18 , setTemplateContent: E19 , getTemplateContent: U24 , setDocumentType: A26 , setDocumentMode: R25 , getDocumentMode: B29 , detachNode: F26 , insertText: P24 , insertTextBefore: j25 , adoptAttributes: k20 , getFirstChild: q19 , getChildNodes: K18 , getParentNode: Q19 , getAttrList: z24 , getTagName: G23 , getNamespaceURI: H20 , getTextNodeContent: J26 , getCommentNodeContent: V26 , getDocumentTypeNodeName: W19 , getDocumentTypeNodePublicId: X17 , getDocumentTypeNodeSystemId: Y15 , isTextNode: Z16 , isCommentNode: $20 , isDocumentTypeNode: w25 , isElementNode: ee6 , setNodeSourceCodeLocation: te7 , getNodeSourceCodeLocation: ne8 , updateNodeSourceCodeLocation: oe7  } = N20, { default: m26 , ...L26 } = N20, de7 = m26 !== void 0 ? m26 : L26;
+var N20 = x29(a24()), { createDocument: O23, createDocumentFragment: _24, createElement: M25, createCommentNode: v18, setTemplateContent: E19, getTemplateContent: U24, setDocumentType: A26, setDocumentMode: R25, getDocumentMode: B29, detachNode: F26, insertText: P24, insertTextBefore: j25, adoptAttributes: k20, getFirstChild: q19, getChildNodes: K18, getParentNode: Q19, getAttrList: z24, getTagName: G23, getNamespaceURI: H20, getTextNodeContent: J26, getCommentNodeContent: V26, getDocumentTypeNodeName: W19, getDocumentTypeNodePublicId: X17, getDocumentTypeNodeSystemId: Y15, isTextNode: Z16, isCommentNode: $20, isDocumentTypeNode: w25, isElementNode: ee6, setNodeSourceCodeLocation: te7, getNodeSourceCodeLocation: ne8, updateNodeSourceCodeLocation: oe7 } = N20, { default: m26, ...L26 } = N20, de7 = m26 !== void 0 ? m26 : L26;
 var f24 = Object.create;
 var o19 = Object.defineProperty;
 var u18 = Object.getOwnPropertyDescriptor;
@@ -51402,7 +51402,7 @@ var d25 = a25((M, _)=>{
     };
     _.exports = s;
 });
-var v19 = g27(d25()), { default: c23 , ...w26 } = v19, O24 = c23 !== void 0 ? c23 : w26;
+var v19 = g27(d25()), { default: c23, ...w26 } = v19, O24 = c23 !== void 0 ? c23 : w26;
 var h27 = Object.create;
 var l29 = Object.defineProperty;
 var p30 = Object.getOwnPropertyDescriptor;
@@ -51456,7 +51456,7 @@ var f25 = _25((k, d)=>{
     };
     d.exports = r;
 });
-var z25 = E20(f25()), { default: a26 , ...B30 } = z25, q20 = a26 !== void 0 ? a26 : B30;
+var z25 = E20(f25()), { default: a26, ...B30 } = z25, q20 = a26 !== void 0 ? a26 : B30;
 var d26 = Object.create;
 var r20 = Object.defineProperty;
 var p33 = Object.getOwnPropertyDescriptor;
@@ -51541,7 +51541,7 @@ var o20 = g28((I, c)=>{
         eofInElementThatCanContainOnlyText: "eof-in-element-that-can-contain-only-text"
     };
 });
-var m28 = y23(o20()), { controlCharacterInInputStream: D27 , noncharacterInInputStream: S28 , surrogateInInputStream: T24 , nonVoidHtmlElementStartTagWithTrailingSolidus: x33 , endTagWithAttributes: w27 , endTagWithTrailingSolidus: A27 , unexpectedSolidusInTag: N23 , unexpectedNullCharacter: E23 , unexpectedQuestionMarkInsteadOfTagName: O25 , invalidFirstCharacterOfTagName: W20 , unexpectedEqualsSignBeforeAttributeName: R26 , missingEndTagName: B33 , unexpectedCharacterInAttributeName: H23 , unknownNamedCharacterReference: q23 , missingSemicolonAfterCharacterReference: k23 , unexpectedCharacterAfterDoctypeSystemIdentifier: P26 , unexpectedCharacterInUnquotedAttributeValue: v20 , eofBeforeTagName: Q20 , eofInTag: V27 , missingAttributeValue: _26 , missingWhitespaceBetweenAttributes: F27 , missingWhitespaceAfterDoctypePublicKeyword: K19 , missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers: L27 , missingWhitespaceAfterDoctypeSystemKeyword: M26 , missingQuoteBeforeDoctypePublicIdentifier: U25 , missingQuoteBeforeDoctypeSystemIdentifier: j26 , missingDoctypePublicIdentifier: z26 , missingDoctypeSystemIdentifier: G24 , abruptDoctypePublicIdentifier: J27 , abruptDoctypeSystemIdentifier: X18 , cdataInHtmlContent: Y16 , incorrectlyOpenedComment: Z17 , eofInScriptHtmlCommentLikeText: $23 , eofInDoctype: ee7 , nestedComment: te8 , abruptClosingOfEmptyComment: ne9 , eofInComment: ie5 , incorrectlyClosedComment: ae6 , eofInCdata: re6 , absenceOfDigitsInNumericCharacterReference: ce7 , nullCharacterReference: oe8 , surrogateCharacterReference: se7 , characterReferenceOutsideUnicodeRange: me8 , controlCharacterReference: de8 , noncharacterCharacterReference: pe8 , missingWhitespaceBeforeDoctypeName: le7 , missingDoctypeName: ue5 , invalidCharacterSequenceAfterDoctypeName: fe6 , duplicateAttribute: ge8 , nonConformingDoctype: he6 , missingDoctype: ye8 , misplacedDoctype: Ce7 , endTagWithoutMatchingOpenElement: be6 , closingOfElementWithOpenChildElements: Ie5 , disallowedContentInNoscriptInHead: De5 , openElementsLeftAfterEof: Se6 , abandonedHeadElementChild: Te4 , misplacedStartTagForHeadElement: xe6 , nestedNoscriptInHead: we7 , eofInElementThatCanContainOnlyText: Ae5  } = m28, { default: s26 , ...C28 } = m28, Ne5 = s26 !== void 0 ? s26 : C28;
+var m28 = y23(o20()), { controlCharacterInInputStream: D27, noncharacterInInputStream: S28, surrogateInInputStream: T24, nonVoidHtmlElementStartTagWithTrailingSolidus: x33, endTagWithAttributes: w27, endTagWithTrailingSolidus: A27, unexpectedSolidusInTag: N23, unexpectedNullCharacter: E23, unexpectedQuestionMarkInsteadOfTagName: O25, invalidFirstCharacterOfTagName: W20, unexpectedEqualsSignBeforeAttributeName: R26, missingEndTagName: B33, unexpectedCharacterInAttributeName: H23, unknownNamedCharacterReference: q23, missingSemicolonAfterCharacterReference: k23, unexpectedCharacterAfterDoctypeSystemIdentifier: P26, unexpectedCharacterInUnquotedAttributeValue: v20, eofBeforeTagName: Q20, eofInTag: V27, missingAttributeValue: _26, missingWhitespaceBetweenAttributes: F27, missingWhitespaceAfterDoctypePublicKeyword: K19, missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers: L27, missingWhitespaceAfterDoctypeSystemKeyword: M26, missingQuoteBeforeDoctypePublicIdentifier: U25, missingQuoteBeforeDoctypeSystemIdentifier: j26, missingDoctypePublicIdentifier: z26, missingDoctypeSystemIdentifier: G24, abruptDoctypePublicIdentifier: J27, abruptDoctypeSystemIdentifier: X18, cdataInHtmlContent: Y16, incorrectlyOpenedComment: Z17, eofInScriptHtmlCommentLikeText: $23, eofInDoctype: ee7, nestedComment: te8, abruptClosingOfEmptyComment: ne9, eofInComment: ie5, incorrectlyClosedComment: ae6, eofInCdata: re6, absenceOfDigitsInNumericCharacterReference: ce7, nullCharacterReference: oe8, surrogateCharacterReference: se7, characterReferenceOutsideUnicodeRange: me8, controlCharacterReference: de8, noncharacterCharacterReference: pe8, missingWhitespaceBeforeDoctypeName: le7, missingDoctypeName: ue5, invalidCharacterSequenceAfterDoctypeName: fe6, duplicateAttribute: ge8, nonConformingDoctype: he6, missingDoctype: ye8, misplacedDoctype: Ce7, endTagWithoutMatchingOpenElement: be6, closingOfElementWithOpenChildElements: Ie5, disallowedContentInNoscriptInHead: De5, openElementsLeftAfterEof: Se6, abandonedHeadElementChild: Te4, misplacedStartTagForHeadElement: xe6, nestedNoscriptInHead: we7, eofInElementThatCanContainOnlyText: Ae5 } = m28, { default: s26, ...C28 } = m28, Ne5 = s26 !== void 0 ? s26 : C28;
 var f27 = Object.create;
 var s27 = Object.defineProperty;
 var n23 = Object.getOwnPropertyDescriptor;
@@ -71071,7 +71071,7 @@ var _27 = p34((U, u)=>{
         8204
     ]);
 });
-var w28 = x34(_27()), { default: a27 , ...y24 } = w28, b25 = a27 !== void 0 ? a27 : y24;
+var w28 = x34(_27()), { default: a27, ...y24 } = w28, b25 = a27 !== void 0 ? a27 : y24;
 var C29 = Object.create;
 var T25 = Object.defineProperty;
 var t23 = Object.getOwnPropertyDescriptor;
@@ -71228,7 +71228,7 @@ var N24 = R27((_)=>{
         return f >= 64976 && f <= 65007 || P.indexOf(f) > -1;
     };
 });
-var I23 = L28(N24()), { REPLACEMENT_CHARACTER: a28 , CODE_POINTS: D28 , CODE_POINT_SEQUENCES: M27 , isSurrogate: G25 , isSurrogatePair: U26 , getSurrogatePairCodePoint: s28 , isControlCodePoint: H24 , isUndefinedCodePoint: F28  } = I23, { default: S29 , ...i26 } = I23, g29 = S29 !== void 0 ? S29 : i26;
+var I23 = L28(N24()), { REPLACEMENT_CHARACTER: a28, CODE_POINTS: D28, CODE_POINT_SEQUENCES: M27, isSurrogate: G25, isSurrogatePair: U26, getSurrogatePairCodePoint: s28, isControlCodePoint: H24, isUndefinedCodePoint: F28 } = I23, { default: S29, ...i26 } = I23, g29 = S29 !== void 0 ? S29 : i26;
 var C30 = Object.create;
 var l34 = Object.defineProperty;
 var c26 = Object.getOwnPropertyDescriptor;
@@ -71294,7 +71294,7 @@ var f28 = P27((x, u)=>{
     };
     u.exports = n;
 });
-var R28 = g30(f28()), { default: d28 , ...I24 } = R28, G26 = d28 !== void 0 ? d28 : I24;
+var R28 = g30(f28()), { default: d28, ...I24 } = R28, G26 = d28 !== void 0 ? d28 : I24;
 var Et2 = Object.create;
 var ne10 = Object.defineProperty;
 var ht5 = Object.getOwnPropertyDescriptor;
@@ -71921,7 +71921,7 @@ var Tt4 = St3((Ot, _t)=>{
     };
     _t.exports = n;
 });
-var lt4 = Ct3(Tt4()), { default: nt4 , ...It4 } = lt4, Dt3 = nt4 !== void 0 ? nt4 : It4;
+var lt4 = Ct3(Tt4()), { default: nt4, ...It4 } = lt4, Dt3 = nt4 !== void 0 ? nt4 : It4;
 var _29 = Object.create;
 var l35 = Object.defineProperty;
 var C33 = Object.getOwnPropertyDescriptor;
@@ -72016,7 +72016,7 @@ var T26 = O26((q, u)=>{
     };
     u.exports = i;
 });
-var y25 = E25(T26()), { default: k25 , ...D29 } = y25, F29 = k25 !== void 0 ? k25 : D29;
+var y25 = E25(T26()), { default: k25, ...D29 } = y25, F29 = k25 !== void 0 ? k25 : D29;
 var f29 = Object.create;
 var a29 = Object.defineProperty;
 var l36 = Object.getOwnPropertyDescriptor;
@@ -72073,7 +72073,7 @@ var d30 = E26((x, i)=>{
     };
     i.exports = o;
 });
-var C34 = O27(d30()), { default: c27 , ...T27 } = C34, P28 = c27 !== void 0 ? c27 : T27;
+var C34 = O27(d30()), { default: c27, ...T27 } = C34, P28 = c27 !== void 0 ? c27 : T27;
 var l37 = Object.create;
 var a30 = Object.defineProperty;
 var p37 = Object.getOwnPropertyDescriptor;
@@ -72111,7 +72111,7 @@ var u24 = x35((B, n)=>{
     };
     n.exports = o;
 });
-var O28 = k26(u24()), { default: c28 , ...M28 } = O28, P29 = c28 !== void 0 ? c28 : M28;
+var O28 = k26(u24()), { default: c28, ...M28 } = O28, P29 = c28 !== void 0 ? c28 : M28;
 var d34 = Object.create;
 var n25 = Object.defineProperty;
 var l38 = Object.getOwnPropertyDescriptor;
@@ -72148,7 +72148,7 @@ var u25 = m34((T, p)=>{
     };
     p.exports = i;
 });
-var E28 = M29(u25()), { default: a33 , ...P30 } = E28, b26 = a33 !== void 0 ? a33 : P30;
+var E28 = M29(u25()), { default: a33, ...P30 } = E28, b26 = a33 !== void 0 ? a33 : P30;
 var L33 = Object.create;
 var n26 = Object.defineProperty;
 var d35 = Object.getOwnPropertyDescriptor;
@@ -72199,7 +72199,7 @@ var f33 = k27((x, a)=>{
     };
     a.exports = r;
 });
-var z27 = B34(f33()), { default: h30 , ...M30 } = z27, E29 = h30 !== void 0 ? h30 : M30;
+var z27 = B34(f33()), { default: h30, ...M30 } = z27, E29 = h30 !== void 0 ? h30 : M30;
 var n27 = Object.create;
 var p39 = Object.defineProperty;
 var c29 = Object.getOwnPropertyDescriptor;
@@ -72248,7 +72248,7 @@ var m35 = f34((U, i)=>{
     };
     i.exports = l;
 });
-var T29 = I25(m35()), { default: u27 , ...A29 } = T29, q25 = u27 !== void 0 ? u27 : A29;
+var T29 = I25(m35()), { default: u27, ...A29 } = T29, q25 = u27 !== void 0 ? u27 : A29;
 var C35 = Object.create;
 var u28 = Object.defineProperty;
 var m36 = Object.getOwnPropertyDescriptor;
@@ -72357,7 +72357,7 @@ var L34 = F30((G, _)=>{
                     n._insertCharacters.call(this, e);
                     let o = this._shouldFosterParentOnInsertion(), r = o && t.lastFosterParentingLocation.parent || this.openElements.currentTmplContent || this.openElements.current, a = this.treeAdapter.getChildNodes(r), i = o && t.lastFosterParentingLocation.beforeElement ? a.indexOf(t.lastFosterParentingLocation.beforeElement) - 1 : a.length - 1, l = a[i];
                     if (this.treeAdapter.getNodeSourceCodeLocation(l)) {
-                        let { endLine: g , endCol: E , endOffset: N  } = e.location;
+                        let { endLine: g, endCol: E, endOffset: N } = e.location;
                         this.treeAdapter.updateNodeSourceCodeLocation(l, {
                             endLine: g,
                             endCol: E,
@@ -72370,7 +72370,7 @@ var L34 = F30((G, _)=>{
     };
     _.exports = h;
 });
-var I26 = P34(L34()), { default: f35 , ...M33 } = I26, j27 = f35 !== void 0 ? f35 : M33;
+var I26 = P34(L34()), { default: f35, ...M33 } = I26, j27 = f35 !== void 0 ? f35 : M33;
 var g33 = Object.create;
 var c30 = Object.defineProperty;
 var R29 = Object.getOwnPropertyDescriptor;
@@ -72480,7 +72480,7 @@ var p40 = T30((K, d)=>{
     n.ELEMENT_ENTRY = "ELEMENT_ENTRY";
     d.exports = n;
 });
-var C36 = k29(p40()), { default: N25 , ...Y17 } = C36, I27 = N25 !== void 0 ? N25 : Y17;
+var C36 = k29(p40()), { default: N25, ...Y17 } = C36, I27 = N25 !== void 0 ? N25 : Y17;
 var _36 = Object.create;
 var n28 = Object.defineProperty;
 var w29 = Object.getOwnPropertyDescriptor;
@@ -72508,7 +72508,7 @@ var v23 = (t, e, d)=>(d = t != null ? _36(S33(t)) : {}, U27(e || !t || !t.__esMo
     }) : d, t));
 var f37 = E33((s)=>{
     "use strict";
-    var { DOCUMENT_MODE: i  } = U20, c = "html", M = "about:legacy-compat", R = "http://www.ibm.com/data/dtd/v11/ibmxhtml1-transitional.dtd", a = [
+    var { DOCUMENT_MODE: i } = U20, c = "html", M = "about:legacy-compat", R = "http://www.ibm.com/data/dtd/v11/ibmxhtml1-transitional.dtd", a = [
         "+//silmaril//dtd html pro v0r11 19970101//",
         "-//as//dtd html 3.0 aswedit + extensions//",
         "-//advasoft ltd//dtd html 3.0 aswedit + extensions//",
@@ -72607,7 +72607,7 @@ var f37 = E33((s)=>{
         return t && (l += t), e ? l += " PUBLIC " + m(e) : d && (l += " SYSTEM"), d !== null && (l += " " + m(d)), l;
     };
 });
-var u30 = v23(f37()), { isConforming: T33 , getDocumentMode: y26 , serializeContent: b27  } = u30, { default: I28 , ...P35 } = u30, g34 = I28 !== void 0 ? I28 : P35;
+var u30 = v23(f37()), { isConforming: T33, getDocumentMode: y26, serializeContent: b27 } = u30, { default: I28, ...P35 } = u30, g34 = I28 !== void 0 ? I28 : P35;
 var s29 = Object.create;
 var n29 = Object.defineProperty;
 var _37 = Object.getOwnPropertyDescriptor;
@@ -72638,7 +72638,7 @@ var f38 = O30((E, a)=>{
             }), c), Object.create(null));
     };
 });
-var x38 = j28(f38()), { default: d37 , ...h35 } = x38, g35 = d37 !== void 0 ? d37 : h35;
+var x38 = j28(f38()), { default: d37, ...h35 } = x38, g35 = d37 !== void 0 ? d37 : h35;
 var d38 = Object.create;
 var c33 = Object.defineProperty;
 var g36 = Object.getOwnPropertyDescriptor;
@@ -72891,7 +72891,7 @@ var l39 = L35((P, o)=>{
     };
     o.exports = h;
 });
-var O32 = E34(l39()), { default: m38 , ...k30 } = O32, C37 = m38 !== void 0 ? m38 : k30;
+var O32 = E34(l39()), { default: m38, ...k30 } = O32, C37 = m38 !== void 0 ? m38 : k30;
 var d39 = Object.create;
 var m39 = Object.defineProperty;
 var h36 = Object.getOwnPropertyDescriptor;
@@ -73167,7 +73167,7 @@ var T34 = N27((l)=>{
         return !!((!i || i === r.HTML) && G(t, n, a) || (!i || i === r.MATHML) && D(t, n));
     };
 });
-var x39 = S34(T34()), { causesExit: X19 , adjustTokenMathMLAttrs: b29 , adjustTokenSVGAttrs: v24 , adjustTokenXMLAttrs: H26 , adjustTokenSVGTagName: j29 , isIntegrationPoint: B35  } = x39, { default: g37 , ...P36 } = x39, F33 = g37 !== void 0 ? g37 : P36;
+var x39 = S34(T34()), { causesExit: X19, adjustTokenMathMLAttrs: b29, adjustTokenSVGAttrs: v24, adjustTokenXMLAttrs: H26, adjustTokenSVGTagName: j29, isIntegrationPoint: B35 } = x39, { default: g37, ...P36 } = x39, F33 = g37 !== void 0 ? g37 : P36;
 var xe7 = Object.create;
 var _e7 = Object.defineProperty;
 var ve7 = Object.getOwnPropertyDescriptor;
@@ -74284,7 +74284,7 @@ var Ge3 = ze5((xn, ye)=>{
         }
     }
 });
-var Un3 = qe2(Ge3()), { default: Ye4 , ...yn2 } = Un3, vn3 = Ye4 !== void 0 ? Ye4 : yn2;
+var Un3 = qe2(Ge3()), { default: Ye4, ...yn2 } = Un3, vn3 = Ye4 !== void 0 ? Ye4 : yn2;
 var i28 = /[#.]/g;
 function p44(n, o) {
     let l = n || "", s = {}, t = 0, r, c;
@@ -76415,12 +76415,12 @@ function i30(r = {}) {
     }
 }
 const { ...rest } = mod1;
-const Text = ({ text , align ="left" , variant  })=>{
+const Text = ({ text, align = "left", variant })=>{
     return rest.createElement("div", {
         className: `text text-${align} text-${variant}`
     }, text);
 };
-const Button = ({ full , hideBorder , href , icon , isActive , isExternal , label  })=>{
+const Button = ({ full, hideBorder, href, icon, isActive, isExternal, label, onClick })=>{
     const className = rest.useMemo(()=>{
         const classNames = [
             "button"
@@ -76435,9 +76435,16 @@ const Button = ({ full , hideBorder , href , icon , isActive , isExternal , labe
         isActive
     ]);
     const target = isExternal ? "_blank" : undefined;
+    const handleMouseDown = rest.useMemo(()=>onClick ? (e)=>{
+            e.preventDefault();
+            onClick();
+        } : undefined, [
+        onClick
+    ]);
     return rest.createElement("a", {
         className: className,
         href: href,
+        onMouseDown: handleMouseDown,
         target: target
     }, icon && rest.createElement(mod7.FontAwesomeIcon, {
         icon: icon,
@@ -76451,7 +76458,7 @@ const Button = ({ full , hideBorder , href , icon , isActive , isExternal , labe
         icon: mod4.faSquareArrowUpRight
     })));
 };
-const CourtesyMessage = ({ button , title  })=>{
+const CourtesyMessage = ({ button, title })=>{
     return rest.createElement("div", {
         className: "courtesy-message"
     }, rest.createElement(Text, {
@@ -76466,7 +76473,7 @@ const CourtesyMessage = ({ button , title  })=>{
         label: button.label
     })));
 };
-const Header = ({ title  })=>{
+const Header = ({ title })=>{
     return rest.createElement("div", {
         className: "header"
     }, rest.createElement(Text, {
@@ -76475,7 +76482,7 @@ const Header = ({ title  })=>{
         align: "center"
     }));
 };
-const ActionButton = ({ full , hideBorder , icon , isActive , label , onClick  })=>{
+const ActionButton = ({ full, hideBorder, icon, isActive, label, onClick })=>{
     const className = rest.useMemo(()=>{
         const classNames = [
             "button"
@@ -76500,7 +76507,7 @@ const ActionButton = ({ full , hideBorder , icon , isActive , label , onClick  }
         variant: "t1"
     }));
 };
-const NavigationBar = ({ actions =[] , contentBelow , backUrl  })=>{
+const NavigationBar = ({ actions = [], contentBelow, backUrl })=>{
     const navigate = mod9.useNavigate();
     rest.useCallback(()=>{
         if (backUrl) navigate(backUrl);
@@ -76625,7 +76632,7 @@ const GameRoute = ()=>{
             remarkPlugins: RemarkPlugins
         }, paragraph))))));
 };
-const Checkbox = ({ isChecked , label , onToggleChecked  })=>{
+const Checkbox = ({ isChecked, label, onToggleChecked })=>{
     return rest.createElement("div", {
         className: "checkbox",
         onClick: onToggleChecked
@@ -76646,7 +76653,7 @@ const strikethroughRegExp = /~~([^~]+)~~/g;
 const stripMarkdown = (text)=>{
     return text.replace(boldAndItalicRegExp, (_, match)=>match).replace(bold1RegExp, (_, match)=>match).replace(bold2RegExp, (_, match)=>match).replace(italic1RegExp, (_, match)=>match).replace(italic2RegExp, (_, match)=>match).replace(strikethroughRegExp, (_, match)=>match);
 };
-const GuideFilters = ({ hideComments , hideOptional , hideSafety , ignoredRules , rules , onToggleHideComments , onToggleHideOptional , onToggleHideSafety , onToggleIgnoredRule  })=>{
+const GuideFilters = ({ hideComments, hideOptional, hideSafety, ignoredRules, rules, onToggleHideComments, onToggleHideOptional, onToggleHideSafety, onToggleIgnoredRule })=>{
     return rest.createElement("div", {
         className: "guide-filters"
     }, rest.createElement(Text, {
@@ -76689,53 +76696,53 @@ const RemarkPlugins1 = [
     i30
 ];
 const components1 = {
-    a: ({ node , ...props })=>rest.createElement("a", {
+    a: ({ node, ...props })=>rest.createElement("a", {
             ...props,
             className: "md-a",
             target: "_blank"
         }),
-    h1: ({ node , ...props })=>rest.createElement("h1", {
+    h1: ({ node, ...props })=>rest.createElement("h1", {
             ...props,
             className: "text-h1"
         }),
-    h2: ({ node , ...props })=>rest.createElement("h2", {
+    h2: ({ node, ...props })=>rest.createElement("h2", {
             ...props,
             className: "text-h2"
         }),
-    h3: ({ node , ...props })=>rest.createElement("h3", {
+    h3: ({ node, ...props })=>rest.createElement("h3", {
             ...props,
             className: "text-h3"
         }),
-    h4: ({ node , ...props })=>rest.createElement("h4", {
+    h4: ({ node, ...props })=>rest.createElement("h4", {
             ...props,
             className: "text-h4"
         }),
-    h5: ({ node , ...props })=>rest.createElement("h5", {
+    h5: ({ node, ...props })=>rest.createElement("h5", {
             ...props,
             className: "text-h5"
         }),
-    li: ({ node , ...props })=>rest.createElement("li", {
+    li: ({ node, ...props })=>rest.createElement("li", {
             className: "text-t1",
             ...props
         }),
-    ol: ({ node , ...props })=>rest.createElement("ol", {
+    ol: ({ node, ...props })=>rest.createElement("ol", {
             className: "md-ol",
             ...props
         }),
-    p: ({ node , ...props })=>rest.createElement("p", {
+    p: ({ node, ...props })=>rest.createElement("p", {
             className: "text-t1",
             ...props
         }),
-    table: ({ node , ...props })=>rest.createElement("table", {
+    table: ({ node, ...props })=>rest.createElement("table", {
             className: "md-table",
             ...props
         }),
-    td: ({ node , ...props })=>rest.createElement("td", {
+    td: ({ node, ...props })=>rest.createElement("td", {
             className: "text-t1",
             ...props
         })
 };
-const GuideViewer = ({ markdown  })=>{
+const GuideViewer = ({ markdown })=>{
     return rest.createElement("div", {
         className: "guide-viewer"
     }, rest.createElement(T19, {
@@ -76899,7 +76906,7 @@ const GuideRoute = ()=>{
         markdown: guide.format(options)
     }))));
 };
-const IconButton = ({ hideBorder , href , icon , isActive , isExternal  })=>{
+const IconButton = ({ hideBorder, href, icon, isActive, isExternal })=>{
     const className = rest.useMemo(()=>{
         const classNames = [
             "button icon-button"
@@ -76948,23 +76955,49 @@ const HomeRoute = ()=>{
         ], [
         window.location.origin
     ]);
-    const projects = rest.useMemo(()=>[
-            {
-                isExternal: false,
-                label: "Dark Souls III Guide",
-                url: "/#/guides/dark-souls-3-any-glitchless-sl1"
+    const categories = rest.useMemo(()=>({
+            ["dark-souls"]: {
+                name: "Dark Souls",
+                projects: [
+                    {
+                        isExternal: false,
+                        label: "Dark Souls III Guide",
+                        url: "/#/guides/dark-souls-3-any-glitchless-sl1"
+                    },
+                    {
+                        isExternal: false,
+                        label: "Solaire's Adventures",
+                        url: "/#/games/solaires-adventures"
+                    }
+                ]
             },
-            {
-                isExternal: false,
-                label: "Solaire's Adventures",
-                url: "/#/games/solaires-adventures"
-            },
-            {
-                isExternal: true,
-                label: "ROM Hack Manager",
-                url: "https://github.com/zuccha/rom-hack-manager"
+            ["super-mario-world"]: {
+                name: "Super Mario World",
+                projects: [
+                    {
+                        isExternal: false,
+                        label: "Byte Converter",
+                        url: "/pages/byte_converter.html"
+                    },
+                    {
+                        isExternal: false,
+                        label: "Byte Table Editor",
+                        url: "/pages/byte_table_editor.html"
+                    },
+                    {
+                        isExternal: true,
+                        label: "ROM Hack Manager",
+                        url: "https://github.com/zuccha/rom-hack-manager"
+                    },
+                    {
+                        isExternal: true,
+                        label: "SMW Resources",
+                        url: "https://github.com/zuccha/smw-code"
+                    }
+                ]
             }
-        ], []);
+        }), []);
+    const [selectedCategory, setSelectedCategory] = rest.useState();
     return rest.createElement("div", {
         className: "home-route"
     }, rest.createElement("div", {
@@ -76981,11 +77014,22 @@ const HomeRoute = ()=>{
             isExternal: social.isExternal
         }))), rest.createElement("div", {
         className: "home-route-projects"
-    }, projects.map((project)=>rest.createElement(Button, {
+    }, selectedCategory ? rest.createElement(rest.Fragment, null, rest.createElement(Button, {
+        full: true,
+        onClick: ()=>setSelectedCategory(undefined),
+        isExternal: false,
+        label: ".."
+    }), categories[selectedCategory].projects.map((project)=>rest.createElement(Button, {
             full: true,
             href: project.url,
             isExternal: project.isExternal,
             label: project.label
+        }))) : Object.entries(categories).map(([id, category])=>rest.createElement(Button, {
+            full: true,
+            label: category.name,
+            onClick: ()=>{
+                setSelectedCategory(id);
+            }
         }))))));
 };
 const NotFoundRoute = ()=>{

@@ -1102,13 +1102,6 @@
       "area": "Lothric Castle",
       "type": "grab-items",
       "items": [{ "name": "Titanite Chunk" }],
-      "where": "on a corpse on a balcony as you make your way outside"
-    },
-    {
-      "showOnIgnoredRules": [8],
-      "area": "Lothric Castle",
-      "type": "grab-items",
-      "items": [{ "name": "Titanite Chunk" }],
       "where": "after climbing the stairs and reaching the hollow infested area, go down the stairs"
     },
     {
@@ -1201,7 +1194,8 @@
       "items": [{ "name": "Green Blossom" }],
       "comments": [
         "Strat: git gud",
-        "On second phase kill the clone as fast as you can"
+        "On second phase kill the clone as fast as you can",
+        "[33 pages guide on Pontiff](https://docs.google.com/document/d/1Ywrl4WQ1KzBTJt-7AgUQLMPsN-sd1tIbnLKoKTONZuk/edit)"
       ]
     },
     {

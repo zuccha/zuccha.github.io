@@ -1,6 +1,5 @@
-.header-title {
+.header {
   text-align: center;
   font-family: var(--font-heading);
-  font-size: 2em;
   color: var(--color-neutral-8);
 }
