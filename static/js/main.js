@@ -34130,6 +34130,9 @@ class Guide {
         this.instructions = [];
         this.rules = [];
     }
+    getName() {
+        return this.name;
+    }
     getRules(options = {}) {
         const isImpactful = options.isImpactful ?? false;
         if (!isImpactful) {
@@ -76759,8 +76762,7 @@ const formatUrl = (location, options)=>{
     if (options.ignoredRules.length > 0) params.push(`ignored-rules=${options.ignoredRules.map((rule)=>`${rule}`).join(",")}`);
     return params.length === 0 ? `/#${location}` : `/#${location}?${params.join("&")}`;
 };
-const GuideRoute = ()=>{
-    document.title = "Dark Souls III Guide";
+const GuideRouteJson = ()=>{
     const location = mod9.useLocation();
     const pathnames = location.pathname.split("/");
     const name = pathnames[pathnames.length - 1];
@@ -76869,9 +76871,11 @@ const GuideRoute = ()=>{
         toggleFilters
     ]);
     if (status === "initial" || status === "loading") {
+        document.title = "Loading...";
         return null;
     }
     if (status === "failure") {
+        document.title = "Guide error";
         return rest.createElement(CourtesyMessage, {
             title: "The guide is not valid :(",
             button: {
@@ -76880,6 +76884,7 @@ const GuideRoute = ()=>{
             }
         });
     }
+    document.title = guide.getName();
     return rest.createElement("div", {
         className: "guide-route"
     }, rest.createElement(NavigationBar, {
@@ -76904,6 +76909,42 @@ const GuideRoute = ()=>{
         className: "guide-route-guide"
     }, rest.createElement(GuideViewer, {
         markdown: guide.format(options)
+    }))));
+};
+function identity(t) {
+    return t;
+}
+const GuideRouteMd = ()=>{
+    const location = mod9.useLocation();
+    const pathnames = location.pathname.split("/");
+    const name = pathnames[pathnames.length - 1];
+    const [guide, status] = useResource(`/static/guides/${name}.md`, identity);
+    if (status === "initial" || status === "loading") {
+        document.title = "Loading...";
+        return null;
+    }
+    if (status === "failure") {
+        document.title = "Guide error";
+        return rest.createElement(CourtesyMessage, {
+            title: "The guide is not valid :(",
+            button: {
+                label: "HOME",
+                href: "/"
+            }
+        });
+    }
+    document.title = "guide.getName();";
+    console.log(guide);
+    return rest.createElement("div", {
+        className: "guide-route"
+    }, rest.createElement(NavigationBar, {
+        backUrl: "/"
+    }), rest.createElement("div", {
+        className: "guide-route-content"
+    }, rest.createElement("div", {
+        className: "guide-route-guide"
+    }, rest.createElement(GuideViewer, {
+        markdown: guide
     }))));
 };
 const IconButton = ({ hideBorder, href, icon, isActive, isExternal })=>{
@@ -76955,58 +76996,42 @@ const HomeRoute = ()=>{
         ], [
         window.location.origin
     ]);
-    const categories = rest.useMemo(()=>({
-            ["dark-souls"]: {
-                name: "Dark Souls",
-                projects: [
-                    {
-                        isExternal: false,
-                        label: "Dark Souls III Guide",
-                        url: "/#/guides/dark-souls-3-any-glitchless-sl1"
-                    },
-                    {
-                        isExternal: false,
-                        label: "Solaire's Adventures",
-                        url: "/#/games/solaires-adventures"
-                    }
-                ]
+    const projects = rest.useMemo(()=>[
+            {
+                isExternal: false,
+                label: "Solaire's Adventures",
+                url: "/#/games/solaires-adventures"
             },
-            ["super-mario-world"]: {
-                name: "Super Mario World",
-                projects: [
-                    {
-                        isExternal: false,
-                        label: "Byte Converter",
-                        url: "/pages/byte_converter.html"
-                    },
-                    {
-                        isExternal: false,
-                        label: "Byte Table Editor",
-                        url: "/pages/byte_table_editor.html"
-                    },
-                    {
-                        isExternal: true,
-                        label: "ROM Hack Manager",
-                        url: "https://github.com/zuccha/rom-hack-manager"
-                    },
-                    {
-                        isExternal: true,
-                        label: "SMW Resources",
-                        url: "https://github.com/zuccha/smw-code"
-                    }
-                ]
+            {
+                isExternal: false,
+                label: "SMW Toolbox",
+                url: "/smw_toolbox"
+            },
+            {
+                isExternal: true,
+                label: "SMW Resources",
+                url: "https://github.com/zuccha/smw-code"
+            },
+            {
+                isExternal: true,
+                label: "ROM Hack Manager",
+                url: "https://github.com/zuccha/rom-hack-manager"
             }
-        }), []);
-    const [selectedCategory, setSelectedCategory] = rest.useState();
+        ], []);
     return rest.createElement("div", {
         className: "home-route"
     }, rest.createElement("div", {
         className: "home-route-content"
     }, rest.createElement("div", {
         className: "home-route-body"
+    }, rest.createElement("div", {
+        className: "home-route-title"
     }, rest.createElement(Header, {
         title: "Amedeo Zucchetti"
-    }), rest.createElement("div", {
+    }), rest.createElement(Text, {
+        text: "a.k.a. zuccha",
+        variant: "h3"
+    })), rest.createElement("div", {
         className: "home-route-socials"
     }, socials.map((social)=>rest.createElement(IconButton, {
             href: social.url,
@@ -77014,22 +77039,11 @@ const HomeRoute = ()=>{
             isExternal: social.isExternal
         }))), rest.createElement("div", {
         className: "home-route-projects"
-    }, selectedCategory ? rest.createElement(rest.Fragment, null, rest.createElement(Button, {
-        full: true,
-        onClick: ()=>setSelectedCategory(undefined),
-        isExternal: false,
-        label: ".."
-    }), categories[selectedCategory].projects.map((project)=>rest.createElement(Button, {
+    }, projects.map((project)=>rest.createElement(Button, {
             full: true,
             href: project.url,
             isExternal: project.isExternal,
             label: project.label
-        }))) : Object.entries(categories).map(([id, category])=>rest.createElement(Button, {
-            full: true,
-            label: category.name,
-            onClick: ()=>{
-                setSelectedCategory(id);
-            }
         }))))));
 };
 const NotFoundRoute = ()=>{
@@ -77049,8 +77063,11 @@ const App = ()=>{
         path: "/games/:id",
         element: rest.createElement(GameRoute, null)
     }), rest.createElement(mod9.Route, {
-        path: "/guides/:id",
-        element: rest.createElement(GuideRoute, null)
+        path: "/guides/md/:id",
+        element: rest.createElement(GuideRouteMd, null)
+    }), rest.createElement(mod9.Route, {
+        path: "/guides/json/:id",
+        element: rest.createElement(GuideRouteJson, null)
     }), rest.createElement(mod9.Route, {
         path: "/",
         element: rest.createElement(HomeRoute, null)

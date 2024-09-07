@@ -1,7 +1,7 @@
 {
   "name": "SMW Toolbox",
   "short_name": "SMW Toolbox",
-  "scope": "/smw_toolbox",
+  "start_url": "/smw_toolbox",
   "icons": [
     {
       "src": "./icons/16x16.png",
