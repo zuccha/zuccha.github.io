@@ -77005,7 +77005,7 @@ const HomeRoute = ()=>{
             {
                 isExternal: false,
                 label: "SMW Toolbox",
-                url: "/smw_toolbox"
+                url: "/smw-toolbox"
             },
             {
                 isExternal: true,
