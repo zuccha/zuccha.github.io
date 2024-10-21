@@ -1,0 +1,17 @@
+.separator {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+
+.separator-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-neutral-4);
+}
+
+.separator-title {
+  margin: 0 var(--spacing-2);
+}

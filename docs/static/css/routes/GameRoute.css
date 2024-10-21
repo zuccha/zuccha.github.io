@@ -1,0 +1,37 @@
+.game-route {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.game-route-content {
+  justify-content: center;
+  display: flex;
+}
+
+.game-route-body {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--max-page-width);
+  width: 100%;
+  padding: var(--spacing-4);
+  row-gap: var(--spacing-5);
+}
+
+.game-route-img {
+  width: 100%;
+  max-width: 600px;
+  align-self: center;
+}
+
+.game-route-downloads {
+  display: flex;
+  column-gap: var(--spacing-3);
+  align-items: center;
+  justify-content: center;
+}
+
+.game-route-description {
+  display: flex;
+  flex-direction: column;
+}

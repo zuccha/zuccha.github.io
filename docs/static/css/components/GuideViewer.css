@@ -1,0 +1,24 @@
+.md-a {
+  color: var(--color-primary-1);
+  text-decoration: none;
+}
+
+.md-a:hover {
+  color: var(--color-primary-1);
+  text-decoration: underline;
+}
+
+.md-ol li::marker {
+  font-weight: bold;
+}
+
+.md-table {
+  border-collapse: collapse;
+}
+
+.md-table th,
+.md-table td {
+  border: 1px solid var(--color-neutral-4);
+  padding: var(--spacing-2);
+  vertical-align: top;
+}

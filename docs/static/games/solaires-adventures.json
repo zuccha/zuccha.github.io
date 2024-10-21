@@ -1,0 +1,17 @@
+{
+  "title": "Solaire's Adventures",
+  "image": {
+    "src": "/static/images/courtyard.png",
+    "alt": "Solaire in the court yard"
+  },
+  "downloads": {
+    "macOS": "https://ln5.sync.com/dl/e06f00610/m6vwhtyc-76nbki9p-id829qii-37n38adt",
+    "windows": "https://ln5.sync.com/dl/4ef9af060/a33m3iwg-wppfkp2x-insq8cb3-5f7g3b2e"
+  },
+  "description": [
+    "**What if Solaire was the chosen undead?**",
+    "Play as the wanderer from Astora in an adventure that will bring you across the land of Lordran. The game focuses on the events of the original _Dark Souls_ while combining aspects from different _Fromsoftware_ games, as well as being a throwback at older _The Lengend of Zelda_ titles.",
+    "_N.B.: This is only a demo, the game is currently under development. The latest version features only the first area of the game and doesn't include any sound effect._",
+    "No release date has been planned, and whether the full game will ever be completed is a question only time will answer. For now, I can only hope that one day I will be able to implement a Bed of Chaos fight that is not worse than its predecessor."
+  ]
+}

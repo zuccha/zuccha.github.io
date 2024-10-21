@@ -1,0 +1,11 @@
+.guide-filters {
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-filters-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-gap: var(--spacing-2);
+  margin-top: var(--spacing-3);
+}

@@ -1,0 +1,10 @@
+{
+  "version": "3",
+  "redirects": {
+    "https://esm.sh/react-markdown@7": "https://esm.sh/react-markdown@7.1.2",
+    "https://esm.sh/rehype-raw@6": "https://esm.sh/rehype-raw@6.1.1",
+    "https://esm.sh/v103/@types/react-dom@^18/index.d.ts": "https://esm.sh/v103/@types/react-dom@18.0.10/index.d.ts",
+    "https://esm.sh/v103/@types/react@^18/index.d.ts": "https://esm.sh/v103/@types/react@18.0.26/index.d.ts"
+  },
+  "remote": {}
+}

@@ -1,0 +1,42 @@
+{
+  "name": "SMW Toolbox",
+  "short_name": "SMW Toolbox",
+  "start_url": "/smw_toolbox",
+  "icons": [
+    {
+      "src": "./icons/16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Calculator",
+      "short_name": "Calculator",
+      "description": "Calculator for binary, decimal, and hexadecimal values",
+      "url": "/#/w/calculator"
+    },
+    {
+      "name": "Table Editor",
+      "short_name": "Table Editor",
+      "description": "Editor for ASM tables",
+      "url": "/#/w/table-editor"
+    }
+  ],
+  "display": "minimal-ui"
+}

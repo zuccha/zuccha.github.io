@@ -1,0 +1,36 @@
+.guide-route {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.guide-route-filters {
+  position: relative;
+}
+
+.guide-route-filters > * {
+  background-color: var(--color-neutral-2);
+  position: absolute;
+  padding: var(--spacing-4) var(--spacing-5);
+  border: 1px solid var(--color-neutral-5);
+  top: var(--spacing-4);
+  left: 0;
+  right: 0;
+}
+
+.guide-route-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.guide-route-guide {
+  max-width: var(--max-page-width);
+  padding: var(--spacing-6) 0;
+}
+
+@media only screen and (max-width: 800px) {
+  .guide-route-content {
+    padding: var(--spacing-2);
+  }
+}

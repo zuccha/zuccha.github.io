@@ -1,0 +1,1517 @@
+{
+  "_schema": "dark-souls-3",
+  "gameTitle": "Dark Souls III",
+  "categories": ["Any%", "Glitchless", "SL1"],
+  "description": [
+    "Challenge run for improving your skill level.",
+    "This run is meant for people who want to challenge themselves and improve their knowledge of the game, but have little to no experience with challenge runs or speed runs and don't know where to start.",
+    "This is not a definitive guide, it's just a route that I felt worked well for me, and might be a starting point for someone else as well.",
+    "The guide is dynamic: it suggests a series of restrictive rules, but you can choose to ignore one or more to make the experience more bearable.",
+    "This is not a speed run guide, as it's missing many optimizations required for competitive times, but you can still play it going fast."
+  ],
+  "resources": [
+    "[Generic high-level SL1 guide](https://www.reddit.com/r/darksouls3/comments/4g4wy9/dark_souls_3_sl1_guide/)",
+    "[SL1, Glitchless speed run guide](https://docs.google.com/spreadsheets/d/19GMDO2F7vBZrIQsa79idLOaa0ExokY1BWAo6OaSiQsI/edit#gid=656115109) (in French)"
+  ],
+  "instructions": [
+    {
+      "area": "Character Creation",
+      "type": "create-character",
+      "burialGift": "Young White Branch",
+      "class": "Deprived",
+      "comments": [
+        "The _Young White Branch_ will make it so that the giant archer will shoot at enemies instead of you"
+      ]
+    },
+    {
+      "hideOnIgnoredRules": [3],
+      "area": "Cemetery of Ash",
+      "type": "change-equipment",
+      "unequip": ["Plank Shield", "Loincloth", "Young White Branch"],
+      "comments": [
+        "Realize you already failed the run, since you started with _Loincloth_ equipped and violated rule 3",
+        "Collect yourself and pretend this never happened"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [3],
+      "area": "Cemetery of Ash",
+      "type": "change-equipment",
+      "unequip": ["Plank Shield", "Loincloth", "Young White Branch"]
+    },
+    {
+      "area": "Cemetery of Ash",
+      "type": "two-hand",
+      "weapon": "Club"
+    },
+    {
+      "showOnIgnoredRules": [4],
+      "area": "Cemetery of Ash",
+      "type": "grab-items",
+      "items": [{ "name": "Ashen Estus Flask" }],
+      "where": "behind the first hollow"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Cemetery of Ash",
+      "type": "light-bonfire",
+      "bonfire": "Cemetery of Ash",
+      "safety": true
+    },
+    {
+      "area": "Cemetery of Ash",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "on top of the coffin"
+    },
+    {
+      "area": "Cemetery of Ash",
+      "type": "fight-boss",
+      "boss": "Iudex Gundyr",
+      "comments": [
+        "Use the weapon art right before removing the sword",
+        "5 R1",
+        "Wait for stamina regen, then 1 R1, the boss is stunned",
+        "3 R1 while stunned",
+        "2 R1 during transition to second phase",
+        "1 R1 after transition is completed, the boss is stunned",
+        "3 R1 while stunned",
+        "3 R1 to finish him"
+      ]
+    },
+    {
+      "area": "Firelink Shrine",
+      "type": "buy-items",
+      "items": [
+        { "name": "Dagger" },
+        { "name": "Sorcerer's Staff" },
+        { "name": "Homeward Bone", "quantity": 4 }
+      ],
+      "vendor": "Shrine Handmaid"
+    },
+    {
+      "showOnIgnoredRules": [4],
+      "area": "Firelink Shrine",
+      "type": "allot-estus",
+      "from": "ashen",
+      "to": "normal"
+    },
+    {
+      "area": "Firelink Shrine",
+      "type": "light-bonfire",
+      "bonfire": "Firelink Shrine"
+    },
+    {
+      "area": "Firelink Shrine",
+      "type": "warp",
+      "bonfire": "High Wall of Lothric"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "light-bonfire",
+      "bonfire": "High Wall of Lothric",
+      "safety": true
+    },
+    {
+      "area": "High Wall of Lothric",
+      "type": "grab-items",
+      "items": [{ "name": "Goldpine Resin", "quantity": 2 }],
+      "where": "inside tunnel beneath dead wyvern"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "light-bonfire",
+      "bonfire": "Tower on the Wall",
+      "safety": true
+    },
+    {
+      "area": "High Wall of Lothric",
+      "type": "kill-lizards",
+      "rewards": [{ "name": "Raw Gem" }],
+      "where": "on the roof after mini-Gundyr"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "grab-items",
+      "items": [{ "name": "Black Firebomb", "quantity": 3 }],
+      "where": "on the rooftop right above the plaza with the winged knight, on the same level of the entrance of the building below the crystal lizard",
+      "comments": [
+        "We need one to trade for a _Titanite Chunk_ later on, so don't use all of them >:("
+      ]
+    },
+    {
+      "area": "High Wall of Lothric",
+      "type": "grab-items",
+      "items": [{ "name": "Broadsword" }],
+      "where": "inside building below the crystal lizard"
+    },
+    {
+      "showOnIgnoredRules": [4],
+      "area": "High Wall of Lothric",
+      "type": "grab-items",
+      "items": [{ "name": "Estus Shard" }],
+      "where": "on the anvil at the bottom floor of the building"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "unlock-shortcut",
+      "where": "by running to the elevator and opening the closed gate near the _High Wall of Lothric_ bonfire",
+      "safety": true
+    },
+    {
+      "area": "High Wall of Lothric",
+      "type": "grab-items",
+      "items": [{ "name": "Small Lothric Banner" }],
+      "where": "given by _Emma_ inside the cathedral"
+    },
+    {
+      "area": "High Wall of Lothric",
+      "type": "change-equipment",
+      "equip": ["Broadsword", "Golden Pine Resin"]
+    },
+    {
+      "area": "High Wall of Lothric",
+      "type": "fight-boss",
+      "boss": "Vordt of the Boreal Valley",
+      "items": [{ "name": "Goldpine Resin" }]
+    },
+    {
+      "area": "High Wall of Lothric",
+      "type": "use-items",
+      "items": [{ "name": "Small Lothric Banner" }]
+    },
+    {
+      "area": "Undead Settlement",
+      "type": "grab-items",
+      "items": [{ "name": "Alluring Skull", "quantity": 2 }],
+      "where": "nearby the two dogs at the bottom of the stairs",
+      "comments": [
+        "Walk slowly on the left side of the dogs to avoid triggering them"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Undead Settlement",
+      "type": "light-bonfire",
+      "bonfire": "Undead Settlement",
+      "safety": true
+    },
+    {
+      "area": "Undead Settlement",
+      "type": "grab-items",
+      "items": [{ "name": "Charcoal Pine Bundle", "quantity": 2 }],
+      "where": "on the middle floor of the first house after the bonfire"
+    },
+    {
+      "area": "Undead Settlement",
+      "type": "grab-items",
+      "items": [{ "name": "Charcoal Pine Bundle", "quantity": 2 }],
+      "where": "on the ground floor"
+    },
+    {
+      "showOnIgnoredRules": [4],
+      "area": "Undead Settlement",
+      "type": "grab-items",
+      "items": [{ "name": "Estus Shard" }],
+      "where": "at the base of the tree with the cultists"
+    },
+    {
+      "area": "Undead Settlement",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "on the porch of an house behind the big tree"
+    },
+    {
+      "area": "Undead Settlement",
+      "type": "comment",
+      "text": "Run through the burg in the direction of the _Dilapidated Bridge_ bonfire"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Undead Settlement",
+      "type": "light-bonfire",
+      "bonfire": "Dilapidated Bridge",
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [5],
+      "area": "Undead Settlement",
+      "type": "grab-items",
+      "items": [{ "name": "Undead Bone Shard" }],
+      "where": "on the falling platform nearby the cemetery",
+      "comments": ["Enjoy the giant archer killing the farmers for you"]
+    },
+    {
+      "hideOnIgnoredRules": [7],
+      "area": "Undead Settlement",
+      "type": "comment",
+      "text": "Run all the way through the rest of the burg until the _Road of Sacrifices_ bonfire",
+      "comments": [
+        "You can lose the Hollow Manservants on the bridge by letting them follow you on the house on the right, then sprinting away towards your destination"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [7],
+      "area": "Undead Settlement",
+      "type": "comment",
+      "text": "Run all the way through the rest of the burg until the _Road of Sacrifices_ bonfire",
+      "comments": [
+        "Quit out after opening the door of the tower to lose the big enemies following you"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Undead Settlement",
+      "type": "light-bonfire",
+      "bonfire": "Road of Sacrifices",
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "hideOnIgnoredRules": [3],
+      "area": "Undead Settlement",
+      "type": "grab-items",
+      "items": [{ "name": "Flynn's Ring" }],
+      "where": "on a roof at the very top of the area with the fire demon",
+      "comments": [
+        "The ring grants a boost on damage based on your equip load, so with the build of this guide it will range between 7.5% (13.5 equip load) to 10% (9 equip load)",
+        "Removing _Sorcerer's Staff_ and _Grass Crest Shield_ during fights might increase the damage dealt",
+        "[More about _Flynn's Ring_](http://darksouls3.wikidot.com/ring:flynn-s-ring)",
+        "This is a very long detour, and it is questionable whether the ring is worth or not"
+      ],
+      "optional": true
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "after the first storyteller, circling back up the higher path in the cave with two corvians"
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "comment",
+      "text": "Run towards the _Halfway Fortress_ bonfire"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Road of Sacrifices",
+      "type": "light-bonfire",
+      "bonfire": "Halfway Fortress",
+      "safety": true
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "at the bottom of the cliff after dropping down on the left from the path after the bonfire",
+      "comments": ["Beware of falling damage while jumping down"]
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "surrounded by the venomous mushrooms"
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "light-bonfire",
+      "bonfire": "Crucifixion Woods"
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "grab-items",
+      "items": [{ "name": "Grass Crest Shield" }],
+      "where": "behind a tree close to the giant crab closest to the bonfire",
+      "comments": ["Increases stamina regeneration while equipped"]
+    },
+    {
+      "showOnIgnoredRules": [3],
+      "area": "Road of Sacrifices",
+      "type": "grab-items",
+      "items": [{ "name": "Fallen Knight Set" }],
+      "where": "on the border of the swamp close to the entrance to the Farron Keep"
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "comment",
+      "text": "Bypass the two NPCs and head down to the _Farron Keep_",
+      "comments": [
+        "While climbing down the ladder, hope for at least one of the two idiot NPCs to fall down to their deserved demise"
+      ]
+    },
+    {
+      "area": "Farron Keep",
+      "type": "light-bonfire",
+      "bonfire": "Farron Keep"
+    },
+    {
+      "hideOnIgnoredRules": [3],
+      "area": "Farron Keep",
+      "type": "change-equipment",
+      "equip": ["Dagger", "Grass Crest Shield"]
+    },
+    {
+      "showOnIgnoredRules": [3],
+      "area": "Farron Keep",
+      "type": "change-equipment",
+      "equip": [
+        "Dagger",
+        "Grass Crest Shield",
+        "Fallen Knight Set",
+        "Charcoal Pine Resin"
+      ],
+      "comments": [
+        "Depending on how fast you want to roll, you might want to unequip part of the armor set while running around, and re-equip it before boss fights"
+      ]
+    },
+    {
+      "area": "Farron Keep",
+      "type": "comment",
+      "text": "Exit on the right and extinguish the first flame",
+      "comments": ["To move in the deep swamp, use the _Dagger_'s weapon art"]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Farron Keep",
+      "type": "grab-items",
+      "items": [{ "name": "Homeward Bone", "quantity": 3 }],
+      "where": "behind the flame tower"
+    },
+    {
+      "area": "Farron Keep",
+      "type": "warp",
+      "using": "Homeward Bone"
+    },
+    {
+      "showOnIgnoredRules": [4],
+      "area": "Farron Keep",
+      "type": "grab-items",
+      "items": [{ "name": "Estus Shard" }],
+      "where": "on the left of the _Farron Keep_ bonfire"
+    },
+    {
+      "area": "Farron Keep",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "at the base of the stairs leading to the second flame"
+    },
+    {
+      "hideOnIgnoredRules": [7],
+      "area": "Farron Keep",
+      "type": "comment",
+      "text": "Extinguish the second flame",
+      "comments": [
+        "Be a gamer, don't quit out, and dodge enemies like a boss without bitching about it"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [7],
+      "area": "Farron Keep",
+      "type": "comment",
+      "text": "Extinguish the second flame",
+      "comments": ["Quit out to keep enemies at bay"]
+    },
+    {
+      "area": "Farron Keep",
+      "type": "comment",
+      "text": "Descend the stairs or jump down the hill behind the second flame tower"
+    },
+    {
+      "area": "Farron Keep",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "on the right side of the clearing"
+    },
+    {
+      "area": "Farron Keep",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "on the left side of the clearing just before the stairs"
+    },
+    {
+      "hideOnIgnoredRules": [7],
+      "area": "Farron Keep",
+      "type": "comment",
+      "text": "Climb the stairs and extinguish the third and last flame"
+    },
+    {
+      "showOnIgnoredRules": [7],
+      "area": "Farron Keep",
+      "type": "comment",
+      "text": "Climb the stairs and extinguish the third and last flame",
+      "comments": ["Quit out to keep enemies at bay"]
+    },
+    {
+      "area": "Farron Keep",
+      "type": "light-bonfire",
+      "bonfire": "Keep Ruins"
+    },
+    {
+      "area": "Farron Keep",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "jumping down on the left side of the bridge after the bonfire"
+    },
+    {
+      "showOnIgnoredRules": [5],
+      "area": "Farron Keep",
+      "type": "grab-items",
+      "items": [{ "name": "Undead Bone Shard" }],
+      "where": "inside the tower full of slugs"
+    },
+    {
+      "area": "Farron Keep",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard" }],
+      "where": "after the tower full of slugs"
+    },
+    {
+      "area": "Farron Keep",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Shard", "quantity": 2 }],
+      "where": "continuing further down after the tower full of slugs"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Farron Keep",
+      "type": "comment",
+      "text": "Turn back, climb the ladder that leads to the _Old Wolf of Farron_, take the elevator, and go to area with two dead wyverns"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Farron Keep",
+      "type": "kill-lizards",
+      "amount": 2,
+      "rewards": [{ "name": "Large Titanite Shard", "quantity": 2 }],
+      "where": "at the center and end of the area with the dead wyverns"
+    },
+    {
+      "area": "Farron Keep",
+      "type": "warp",
+      "bonfire": "Firelink Shrine",
+      "using": "Homeward Bone"
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "upgrade-weapon",
+      "weapon": "Broadsword",
+      "level": 3,
+      "infusion": "Raw"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "upgrade-weapon",
+      "weapon": "Broadsword",
+      "level": 4,
+      "infusion": "Raw"
+    },
+    {
+      "showOnIgnoredRules": [4],
+      "area": "Firelink Shrine",
+      "type": "reinforce-estus"
+    },
+    {
+      "showOnIgnoredRules": [5],
+      "area": "Firelink Shrine",
+      "type": "burn-undead-bone-shards"
+    },
+    {
+      "area": "Firelink Shrine",
+      "type": "warp",
+      "bonfire": "Keep Ruins"
+    },
+    {
+      "hideOnIgnoredRules": [7],
+      "area": "Farron Keep",
+      "type": "comment",
+      "text": "Run straight through the gate and go to _Abyss Watchers_",
+      "comments": [
+        "You can avoid most of the ghrus by taking the long way around the hill, still they are a huge pain in the ass"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [7],
+      "area": "Farron Keep",
+      "type": "comment",
+      "text": "Run straight through the gate and go to _Abyss Watchers_",
+      "comments": [
+        "Quit out after opening the door to stop enemies following you"
+      ]
+    },
+    {
+      "area": "Farron Keep",
+      "type": "light-bonfire",
+      "bonfire": "Farron Keep Perimeter",
+      "safety": true
+    },
+    {
+      "area": "Farron Keep",
+      "type": "fight-boss",
+      "boss": "Abyss Watchers",
+      "items": [{ "name": "Goldpine Resin" }]
+    },
+    {
+      "area": "Catacombs of Carthus",
+      "type": "comment",
+      "text": "Drop down on the platforms on the right and enter the doorway"
+    },
+    {
+      "showOnIgnoredRules": [5],
+      "area": "Catacombs of Carthus",
+      "type": "grab-items",
+      "items": [{ "name": "Undead Bone Shard" }],
+      "where": "where the ball crashes, after killing the skeleton wizard hidden behind the right corner by the entrance"
+    },
+    {
+      "area": "Catacombs of Carthus",
+      "type": "comment",
+      "text": "Run to the end and jump down on the lower level",
+      "comments": ["If you can fence skip, why are you even reading this guide"]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "grab-items",
+      "items": [{ "name": "Large Titanite Shard" }],
+      "where": "up the stairs in the passage where the smashing boulder is going through, near the bonfire",
+      "comments": ["Beware of the boulder, it can easily kill you"]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "light-bonfire",
+      "bonfire": "Catacombs of Carthus",
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "comment",
+      "text": "Go back down"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "grab-items",
+      "items": [{ "name": "Carthus Bloodring" }],
+      "where": "at the very end of the area with the falling slugs and equip it",
+      "comments": [
+        "This increases both iframes when rolling and damage taken, no pain no gain"
+      ],
+      "optional": true
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "grab-items",
+      "items": [{ "name": "Large Titanite Shard" }],
+      "where": "upstairs on the opposite side of the entrance, accessible through a staircase behind a hidden wall"
+    },
+    {
+      "area": "Catacombs of Carthus",
+      "type": "comment",
+      "text": "Rush to Wolnir dodging Sasuke's attacks"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "unlock-shortcut",
+      "where": "by opening the gate in the ossuary",
+      "safety": true
+    },
+    {
+      "area": "Catacombs of Carthus",
+      "type": "fight-boss",
+      "boss": "High Lord Wolnir",
+      "items": [{ "name": "Charcoal Pine Bundle", "quantity": 3 }],
+      "comments": [
+        "One bundle per bracelet (two in total if you're lucky)",
+        "3 R1 for first bracelet",
+        "6/7 R1 for second bracelet",
+        "4 R1 for third bracelet"
+      ]
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "warp",
+      "bonfire": "Crucifixion Woods"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "comment",
+      "text": "Go back to the bridge, cut it, and wait for it to fall, then climb down"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "grab-items",
+      "items": [{ "name": "Large Titanite Shard" }],
+      "where": "on a corpse below the fire demon",
+      "comments": [
+        "There is also a _Large Soul of a Nameless Soldier_ (3000 souls) right next to it"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Catacombs of Carthus",
+      "type": "light-bonfire",
+      "bonfire": "Abandoned Tomb",
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Smoldering Lake",
+      "type": "kill-lizards",
+      "rewards": [{ "name": "Titanite Chunk" }],
+      "where": "inside the tunnel found holding the wall on the right when entering the lake"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Smoldering Lake",
+      "type": "grab-items",
+      "items": [{ "name": "Large Titanite Shard", "quantity": 2 }],
+      "where": "on two corpses in the cave at the end of the tunnel"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Smoldering Lake",
+      "type": "grab-items",
+      "items": [{ "name": "Large Titanite Shard", "quantity": 4 }],
+      "where": "spread out on four corpses in the lake, between the entrance, the tunnel, and the giant worm",
+      "comments": [
+        "Dodge ballista bolts like a pro, turning the camera towards the ballista helps"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Smoldering Lake",
+      "type": "grab-items",
+      "items": [{ "name": "Large Titanite Shard", "quantity": 1 }],
+      "where": "on the edge of the cliff past the giant worm and before the _Demon Ruins_ bonfire",
+      "comments": ["Try going past the worm on the right side"]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Smoldering Lake",
+      "type": "warp",
+      "bonfire": "Firelink Shrine",
+      "using": "Homeward Bone"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "comment",
+      "text": "Reach the roof of Firelink by buying the key for 20,000 souls from _Shrine Handmaid_ (lame) or by performing tree skip for style points and bigger wallet"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "trade",
+      "item": "Black Firebomb",
+      "reward": "Titanite Chunk"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "upgrade-weapon",
+      "weapon": "Broadsword",
+      "level": 7
+    },
+    {
+      "showOnIgnoredRules": [5, 8],
+      "area": "Firelink Shrine",
+      "type": "burn-undead-bone-shards",
+      "quantity": 1
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "warp",
+      "bonfire": "Crucifixion Woods"
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "comment",
+      "text": "Enter the ruins, stop by _Orbeck_ to say hi and invite him to _Firelink Shrine_, then rush to _Crystal Sage_"
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "fight-boss",
+      "boss": "Crystal Sage",
+      "comments": [
+        "[Learn spawning patterns](https://www.youtube.com/watch?v=z-c5YFn8CDU) so that you won't be wasting time killing copies anymore"
+      ]
+    },
+    {
+      "area": "Road of Sacrifices",
+      "type": "comment",
+      "text": "Bypass a few enemies and reach the _Cathedral of the Deep_ bonfire"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Road of Sacrifices",
+      "type": "light-bonfire",
+      "bonfire": "Cathedral of the Deep",
+      "safety": true
+    },
+    {
+      "area": "Cathedral of the Deep",
+      "type": "comment",
+      "text": "Run through dog-hell until you reach the chapel",
+      "comments": [
+        "To deal with teleporting dogs, turn the camera backwards (pointing to the dogs) and swear out loud",
+        "Still, beware of the kamikaze hollow"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Cathedral of the Deep",
+      "type": "light-bonfire",
+      "bonfire": "Cleansing Chapel",
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [4],
+      "area": "Cathedral of the Deep",
+      "type": "grab-items",
+      "items": [{ "name": "Estus Shard" }],
+      "where": "on the pillar surrounded by hollows right outside the chapel"
+    },
+    {
+      "hideOnIgnoredRules": [7],
+      "area": "Cathedral of the Deep",
+      "type": "comment",
+      "text": "Make your way to the inside of the cathedral, just before having to face the giant"
+    },
+    {
+      "showOnIgnoredRules": [7],
+      "area": "Cathedral of the Deep",
+      "type": "comment",
+      "text": "Make your way to the inside of the cathedral, just before having to face the giant",
+      "comments": [
+        "Quit out after opening the gate of the cathedral to lose the two assassins following you"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Cathedral of the Deep",
+      "type": "unlock-shortcut",
+      "where": "by going down the elevator, opening the gate and the door that leads back to the chapel bonfire",
+      "safety": true
+    },
+    {
+      "area": "Cathedral of the Deep",
+      "type": "grab-items",
+      "items": [{ "name": "Lloyd's Sword Ring" }],
+      "where": "in front of the giant, above the cathedral's gate",
+      "comments": ["Boosts attacks damage by 10% when HP is full"]
+    },
+    {
+      "area": "Cathedral of the Deep",
+      "type": "comment",
+      "text": "Drop down, and traverse the hall abusing the _Dagger_'s sword art"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Cathedral of the Deep",
+      "type": "unlock-shortcut",
+      "where": "in a passage on the left side of the hall, down the stairs leading back to the chapel bonfire",
+      "safety": true
+    },
+    {
+      "area": "Cathedral of the Deep",
+      "type": "comment",
+      "text": "Reach the _Deacons_ boss entrance"
+    },
+    {
+      "area": "Cathedral of the Deep",
+      "type": "change-equipment",
+      "equip": ["Lloyd's Sword Ring", "Sorcerer's Staff"],
+      "unequip": ["Dagger"],
+      "comments": ["Make sure your HP is full or the ring will have no effect"]
+    },
+    {
+      "area": "Cathedral of the Deep",
+      "type": "fight-boss",
+      "boss": "Deacons of the Deep",
+      "comments": [
+        "If you want to use _Alluring Skulls_ for this boss, remember you will need to buy some more later on or you'll have to go through the dogs before _Sulyvahn_ without any"
+      ]
+    },
+    {
+      "area": "Cathedral of the Deep",
+      "type": "warp",
+      "bonfire": "Firelink Shrine"
+    },
+    {
+      "area": "Firelink Shrine",
+      "type": "buy-items",
+      "items": [{ "name": "Spook" }],
+      "vendor": "Orbeck"
+    },
+    {
+      "area": "Firelink Shrine",
+      "type": "attune-spells",
+      "spells": ["Spook"]
+    },
+    {
+      "area": "Firelink Shrine",
+      "type": "warp",
+      "bonfire": "High Lord Wolnir"
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "comment",
+      "text": "Run until you reach central Irithyll"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Irithyll of the Boreal Valley",
+      "type": "comment",
+      "text": "Stop where there is a line of snow perpendicular to the bridge, turn around, and wait for the croco-beast to finish charging, then kill it and equip the _Pontiff's Right Eye_ ring that it drops",
+      "comments": [
+        "When it stops in front of you, hit with 3 R1 (stun), 2 R1, and 1 critical stab",
+        "The ring increases damage dealt by weapon on successive strikes"
+      ],
+      "optional": true
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Irithyll of the Boreal Valley",
+      "type": "light-bonfire",
+      "bonfire": "Central Irithyll",
+      "safety": true
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "comment",
+      "text": "Run to the Church of Yorshka"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Irithyll of the Boreal Valley",
+      "type": "light-bonfire",
+      "bonfire": "Church of Yorshka",
+      "safety": true
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "cast-spells",
+      "spells": ["Spook"],
+      "comments": ["It helps with traversing the infested tunnel unnoticed"],
+      "safety": true
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "grab-items",
+      "items": [{ "name": "Green Blossom", "quantity": 3 }],
+      "where": "at the bottom of the stairs when you reach the shallow lake"
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "grab-items",
+      "items": [{ "name": "Green Blossom" }],
+      "where": "just before the entrance of the _Distant Manor_"
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "light-bonfire",
+      "bonfire": "Distant Manor"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Irithyll Dungeon",
+      "type": "cast-spells",
+      "spells": ["Spook"],
+      "comments": ["It helps going unnoticed by the fire witch"],
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Irithyll Dungeon",
+      "type": "light-bonfire",
+      "bonfire": "Irithyll Dungeon",
+      "safety": true
+    },
+    {
+      "area": "Irithyll Dungeon",
+      "type": "comment",
+      "text": "Run through the dungeon"
+    },
+    {
+      "area": "Irithyll Dungeon",
+      "type": "grab-items",
+      "items": [{ "name": "Pale Pine Resin", "quantity": 2 }],
+      "where": "right inside one of the cells we need to open, next to a monstrosity on the wall"
+    },
+    {
+      "area": "Irithyll Dungeon",
+      "type": "comment",
+      "text": "Perform dungeon skip or suffer trying to dodge an infinity of rats",
+      "comments": [
+        "[Dungeon skip](https://www.youtube.com/watch?v=NYhfzKBwEqk) (requires _Spook_)"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Irithyll Dungeon",
+      "type": "grab-items",
+      "items": [{ "name": "Xanthous Ashes" }],
+      "where": "found back into the dungeon, in the first cell on the right",
+      "comments": ["They allow to buy resins and bundles at _Firelink Shrine_"],
+      "optional": true
+    },
+    {
+      "area": "Irithyll Dungeon",
+      "type": "comment",
+      "text": "Delve into the _Profaned Capital_ until the bonfire"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Profaned Capital",
+      "type": "light-bonfire",
+      "bonfire": "Profaned Capital",
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [5],
+      "area": "Profaned Capital",
+      "type": "grab-items",
+      "items": [{ "name": "Undead Bone Shard" }],
+      "where": "next to the capital bonfire",
+      "optional": true
+    },
+    {
+      "area": "Profaned Capital",
+      "type": "cast-spells",
+      "spells": ["Spook"]
+    },
+    {
+      "area": "Profaned Capital",
+      "type": "comment",
+      "text": "Go down the ladder near the bonfire and jump off when the terrain textures start appearing, then quickly drop down into the ruins and rush to _Yhorm_"
+    },
+    {
+      "area": "Profaned Capital",
+      "type": "fight-boss",
+      "boss": "Yhorm the Giant",
+      "comments": [
+        "Pick up and equip _Storm Ruler_, use the weapon art to deal damage",
+        "Pro move: try staying close to bait the guillotine attack, which gives you time to punish him"
+      ]
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Profaned Capital",
+      "type": "warp",
+      "bonfire": "Distant Manor"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Profaned Capital",
+      "type": "warp",
+      "bonfire": "Vordt of the Boreal Valley"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "comment",
+      "text": "Run into the cathedral, kill _Emma_, and place the _Basin of Vows_ on the pillar"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "fight-boss",
+      "boss": "Dancer of the Boreal Valley",
+      "comments": [
+        "Try staying behind and hit cautiously, never get too greedy as she can counter-attack quite quickly",
+        "Run away during the transition to the second phase, or stay glued to her ass rolling only on the final whirl for bonus style points"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "comment",
+      "text": "Climb the ladder, go towards the _Consumed King's Garden_, take the elevator down, jump off on the middle floor, and prepare to get your hands on some _Titanite Chunks_",
+      "comments": [
+        "[How to navigate the area](https://www.youtube.com/watch?v=LkQzzEYTGOg)"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [4, 8],
+      "area": "Consumed King's Garden",
+      "type": "grab-items",
+      "items": [{ "name": "Estus Shard" }],
+      "where": "on the right side of the middle floor"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "on the broken stairs on the left side of the middle floor"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "by running straight and climbing the stairs onto the platform",
+      "comments": ["Be wary of the Pus of Man that roam the area"]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "in the corner on the opposite side of the area"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Consumed King's Garden",
+      "type": "warp",
+      "using": "Homeward Bone"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "light-bonfire",
+      "bonfire": "Lothric Castle",
+      "comments": [
+        "We'll need to loot some _Titanite Chunks_ guarded by an army of hollows that's only waiting for us to show up, so it's advisable to take this bonfire"
+      ],
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "on a corpse on a balcony as you make your way outside"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "after climbing the stairs and reaching the hollow infested area, go down the stairs"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk", "quantity": 2 }],
+      "where": "going straight instead of taking the stairs with the axe-wielding hollow, that lead to the _Dragon Barracks_ bonfire"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "light-bonfire",
+      "bonfire": "Dragon Barracks"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "comment",
+      "text": "Jump down on the ledge below the bridge by walking on the armor on the left side, so you don't trigger the dragons"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk" }],
+      "where": "on the ledge below the bridge"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "grab-items",
+      "items": [{ "name": "Titanite Chunk", "quantity": 2 }],
+      "where": "on two corpses on the floor below the bridge"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "warp",
+      "bonfire": "Firelink Shrine",
+      "using": "Homeward Bone"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "upgrade-weapon",
+      "weapon": "Broadsword",
+      "level": 9
+    },
+    {
+      "showOnIgnoredRules": [4, 8],
+      "area": "Firelink Shrine",
+      "type": "reinforce-estus"
+    },
+    {
+      "showOnIgnoredRules": [5, 8],
+      "area": "Firelink Shrine",
+      "type": "burn-undead-bone-shards",
+      "quantity": 1
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "warp",
+      "bonfire": "Distant Manor"
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "comment",
+      "text": "Make your way through Irythill until Sulyvahn's fog",
+      "comments": [
+        "Use two _Alluring Skulls_ on the stairs with the dogs, hoping to distract enough enemies and survive all the bullshit the game is throwing at you"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Irithyll of the Boreal Valley",
+      "type": "unlock-shortcut",
+      "where": "by opening the gate that leads to the _Church of Yorshka_",
+      "comments": [
+        "Optional, but very recommended, unless you are fully confident in your Sulyvahn's skills"
+      ],
+      "optional": true
+    },
+    {
+      "hideOnIgnoredRules": [6],
+      "area": "Irithyll of the Boreal Valley",
+      "type": "fight-boss",
+      "boss": "Pontiff Sulyvahn",
+      "items": [{ "name": "Green Blossom" }],
+      "comments": [
+        "Strat: git gud",
+        "On second phase kill the clone as fast as you can",
+        "[33 pages guide on Pontiff](https://docs.google.com/document/d/1Ywrl4WQ1KzBTJt-7AgUQLMPsN-sd1tIbnLKoKTONZuk/edit)"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [6],
+      "area": "Irithyll of the Boreal Valley",
+      "type": "fight-boss",
+      "boss": "Pontiff Sulyvahn",
+      "items": [{ "name": "Green Blossom" }],
+      "comments": [
+        "Strat: parry like there is no tomorrow",
+        "On second phase kill the clone as fast as you can"
+      ]
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "comment",
+      "text": "Rush through the big square and proceed upward"
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Irithyll of the Boreal Valley",
+      "type": "grab-items",
+      "items": [{ "name": "Easterner's Ashes" }],
+      "where": "on a corpse on the roof just below the Silver Knights",
+      "comments": [
+        "Needed for buying _Large Titanite Shards_ in _Firelink Shrine_"
+      ]
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "comment",
+      "text": "Avoid the Silver Knights and reach the bonfire in _Anor Londo_"
+    },
+    {
+      "area": "Irithyll of the Boreal Valley",
+      "type": "light-bonfire",
+      "bonfire": "Anor Londo"
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Irithyll of the Boreal Valley",
+      "type": "warp",
+      "bonfire": "Firelink Shrine"
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "comment",
+      "text": "Give _Easterner's Ashes_ to _Shrine Handmaid_"
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "buy-items",
+      "items": [{ "name": "Large Titanite Shard", "quantity": 12 }],
+      "vendor": "Shrine Handmaid"
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "upgrade-weapon",
+      "weapon": "Broadsword",
+      "level": 6
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "showOnIgnoredRules": [5],
+      "area": "Firelink Shrine",
+      "type": "burn-undead-bone-shards"
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "warp",
+      "bonfire": "Anor Londo"
+    },
+    {
+      "area": "Anor Londo",
+      "type": "comment",
+      "text": "Make your way to the boss",
+      "comments": [
+        "Cast _Spook_ to jump down the stairs instead of running down"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [4, 8],
+      "area": "Anor Londo",
+      "type": "grab-items",
+      "items": [{ "name": "Estus Shard" }],
+      "where": "on the bottom floor behind a ramp of stairs, in a chest"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Anor Londo",
+      "type": "unlock-shortcut",
+      "where": "by opening the gate with the level on its left",
+      "safety": true
+    },
+    {
+      "area": "Anor Londo",
+      "type": "fight-boss",
+      "boss": "Aldrich, Devourer of Gods",
+      "comments": [
+        "Keep close distance to prevent him from using magic",
+        "Punish his melee attacks as much as possible",
+        "When he teleports, he will spawn in the corner most further away from you; you can take advantage of this by waiting a little, then running towards the spawning position"
+      ]
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Anor Londo",
+      "type": "comment",
+      "text": "Mentally prepare for the fight with _Dancer_ as you are teleported to Lothric against your will"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Anor Londo",
+      "type": "comment",
+      "text": "Warp to _Dragon Barracks_ after being teleported to Lothric"
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "comment",
+      "text": "Speak with _Emma_ (or kill her if you feel evil) and place the _Basin of Vows_ on the pillar"
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "High Wall of Lothric",
+      "type": "fight-boss",
+      "boss": "Dancer of the Boreal Valley",
+      "comments": [
+        "Try staying behind and hit cautiously, never get too greedy as she can counter-attack quite quickly",
+        "Run away during the transition to the second phase, or stay glued to her ass rolling only on the final whirl for bonus style points"
+      ]
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "comment",
+      "text": "Navigate the castle until you reach the _Dragon Barracks_ bonfire"
+    },
+    {
+      "hideOnIgnoredRules": [3, 7],
+      "area": "Lothric Castle",
+      "type": "comment",
+      "text": "Jump down on the ledge below the bridge by walking on the armor on the left side, so you don't trigger the dragons, and run all the way up to _Dragonslayer Armor_"
+    },
+    {
+      "hideOnIgnoredRules": [7],
+      "showOnIgnoredRules": [3],
+      "area": "Lothric Castle",
+      "type": "comment",
+      "text": "Jump down on the ledge below the bridge by walking on the armor on the left side, so you don't trigger the dragons, and run all the way up to _Dragonslayer Armor_",
+      "comments": [
+        "Alternatively, if you are embered, wearing armor, and didn't trigger the dragons before, you can damage boost through the flames, so that you don't have to go through the house on the left side"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [7],
+      "area": "Lothric Castle",
+      "type": "comment",
+      "text": "Run on the bridge and perform one or two quit outs to make your way past the dragons, then run to _Dragonslayer Armor_"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Lothric Castle",
+      "type": "unlock-shortcut",
+      "where": "by activating the elevator in the opposite direction of the fog",
+      "safety": true
+    },
+    {
+      "area": "Lothric Castle",
+      "type": "fight-boss",
+      "boss": "Dragonslayer Armor",
+      "items": [{ "name": "Green Blossom" }, { "name": "Pale Pine Resin" }],
+      "comments": [
+        "Avoid the opener by running around the boss on the right",
+        "He will be stunned around having lost half HPs",
+        "Go for 4 R1 while stunned, make sure to not deplete your stamina completely"
+      ]
+    },
+    {
+      "area": "Grand Archives",
+      "type": "light-bonfire",
+      "bonfire": "Grand Archives",
+      "comments": [
+        "Optional, but highly recommended",
+        "You can also light the _Dragonslayer Armor_ bonfire if you are planning on activating the elevator before the Princes and dying to them"
+      ],
+      "safety": true
+    },
+    {
+      "area": "Grand Archives",
+      "type": "grab-items",
+      "items": [{ "name": "Grand Archives Key" }],
+      "where": "In front of the archives door"
+    },
+    {
+      "hideOnIgnoredRules": [7],
+      "area": "Grand Archives",
+      "type": "comment",
+      "text": "Run through archives until the rooftop and pass the gauntlet until reaching the princes",
+      "comments": ["Watch any speed run for the optimal route"]
+    },
+    {
+      "showOnIgnoredRules": [7],
+      "area": "Grand Archives",
+      "type": "comment",
+      "text": "Run through archives until the rooftop and pass the gauntlet until reaching the princes",
+      "comments": [
+        "Watch any speed run for the optimal route",
+        "Quit out after opening the door before the princes to reset the hollow army"
+      ]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Grand Archives",
+      "type": "unlock-shortcut",
+      "where": "by activating the elevator that leads back down to the _Grand Archives_ bonfire",
+      "safety": true
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Grand Archives",
+      "type": "unlock-shortcut",
+      "where": "by activating the elevator that leads back down to the entrance of the _Dragonslayer Armor_ arena",
+      "safety": true
+    },
+    {
+      "area": "Grand Archives",
+      "type": "fight-boss",
+      "boss": "Twin Princes",
+      "items": [{ "name": "Pale Pine Resin" }],
+      "comments": [
+        "Try circling around the princes to stuck them in a loop",
+        "During second phase, try to hit them on the back so you also injure _Lothric_"
+      ]
+    },
+    {
+      "area": "Grand Archives",
+      "type": "warp",
+      "bonfire": "Firelink Shrine"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "comment",
+      "text": "Give _Xanthous Ashes_ to the _Shrine Handmaid_"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "buy-items",
+      "items": [
+        { "name": "Titanite Slab" },
+        { "name": "Goldpine Resin", "quantity": 21 }
+      ],
+      "vendor": "Shrine Handmaid"
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "upgrade-weapon",
+      "weapon": "Broadsword",
+      "level": 10
+    },
+    {
+      "area": "Firelink Shrine",
+      "type": "comment",
+      "text": "Place the cinders",
+      "comments": ["Get all throne skips scoring mondo points"]
+    },
+    {
+      "showOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "warp",
+      "bonfire": "Kiln of the First Flame",
+      "comments": ["Prepare yourself for a beating"]
+    },
+    {
+      "hideOnIgnoredRules": [8],
+      "area": "Firelink Shrine",
+      "type": "warp",
+      "bonfire": "Kiln of the First Flame",
+      "comments": [
+        "Realize you're going to fight _Cinder_ with a _Broadword_ +6 and reevaluate your life choices"
+      ]
+    },
+    {
+      "area": "Kiln of the First Flame",
+      "type": "fight-boss",
+      "boss": "Soul of Cinder",
+      "items": [{ "name": "Gold Pine Resin" }, { "name": "Green Blossom" }],
+      "comments": [
+        "Consume items while the boss is running towards you",
+        "The boss is stun every 6/7 hits, deal with that",
+        "Punish the boss while he's a wizard, run behind him, and try getting a stagger after he casts _Soul Mass_ to cancel it",
+        "Hope never to see spear (curse those heals) and scimitar mode, even worse if he's buffed with _Soul Mass_",
+        "Roll into the second phase's AoE and hit 3 times, then run away one mile while he does the combo"
+      ]
+    },
+    {
+      "area": "Kiln of the First Flame",
+      "type": "comment",
+      "text": "Light the flame and ***GG***"
+    }
+  ],
+  "rules": {
+    "1": "Start with class _Deprived_",
+    "2": "No level up",
+    "3": "No armor",
+    "4": "No _Estus Flask_ upgrades with _Estus Shards_",
+    "5": "No _Estus Flask_ upgrades with _Undead Bone Shards_",
+    "6": "No parries during boss fights (doing Sulyvahn the hard way)",
+    "7": "No quit-outs",
+    "8": "Be fast and fearless: no detours for upgrades and skip safety bonfires"
+  }
+}
