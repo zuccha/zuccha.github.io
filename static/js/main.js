@@ -43816,7 +43816,7 @@ function n16(e) {
 function I15(l) {
     let c = {}, e = -1, p, r, n, o, f, s, u;
     for(; ++e < l.length;){
-        for(; (e in c);)e = c[e];
+        for(; e in c;)e = c[e];
         if (p = l[e], e && p[1].type === "chunkFlow" && l[e - 1][1].type === "listItemPrefix" && (s = p[1]._tokenizer.events, n = 0, n < s.length && s[n][1].type === "lineEndingBlank" && (n += 2), n < s.length && s[n][1].type === "content")) for(; ++n < s.length && s[n][1].type !== "content";)s[n][1].type === "chunkText" && (s[n][1]._isInFirstContentOfListItem = !0, n++);
         if (p[0] === "enter") p[1].contentType && (Object.assign(c, _16(l, e)), e = c[e], u = !0);
         else if (p[1]._container) {
@@ -46493,7 +46493,7 @@ function x24(e, t) {
 }
 function S19(e, t) {
     let r = e.footnoteById, o = e.footnoteOrder, i = 1;
-    for(; (i in r);)i++;
+    for(; i in r;)i++;
     let n = String(i);
     return o.push(n), r[n] = {
         type: "footnoteDefinition",
@@ -76979,11 +76979,6 @@ const HomeRoute = ()=>{
                 url: "https://github.com/zuccha/"
             },
             {
-                icon: mod2.faLinkedin,
-                isExternal: true,
-                url: "https://www.linkedin.com/in/amedeo-zucchetti/"
-            },
-            {
                 icon: mod4.faLink,
                 isExternal: true,
                 url: window.location.origin
@@ -77001,6 +76996,16 @@ const HomeRoute = ()=>{
                 isExternal: false,
                 label: "Solaire's Adventures",
                 url: "/#/games/solaires-adventures"
+            },
+            {
+                isExternal: false,
+                label: "Dark Souls III Guide",
+                url: "/#/guides/json/dark-souls-3-any-glitchless-sl1"
+            },
+            {
+                isExternal: false,
+                label: "Magic Pop Quiz",
+                url: "/magic-pop-quiz"
             },
             {
                 isExternal: false,
